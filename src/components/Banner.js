@@ -1,9 +1,14 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
-export default function Banner() {
+export default function Banner(props) {
+
+  function gotoServiceCheck() {
+    props.history.push("/servicecheck");
+  }
+
   return (
-    <div className="banner">
+    <div className="banner" id="home">
       <Carousel>
         <Carousel.Item>
           <img
@@ -17,7 +22,7 @@ export default function Banner() {
               Schedule a pickup from our website. From 8 AM to 10 PM, 7 days a
               week
             </p>
-            <button>Schedule a pickup</button>
+            <button onClick={() => gotoServiceCheck()}>Schedule a pickup</button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -32,7 +37,7 @@ export default function Banner() {
               Schedule a pickup from our website. From 8 AM to 10 PM, 7 days a
               week
             </p>
-            <button>Schedule a pickup</button>
+            <button onClick={() => gotoServiceCheck()}>Schedule a pickup</button>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -47,7 +52,7 @@ export default function Banner() {
               Schedule a pickup from our website. From 8 AM to 10 PM, 7 days a
               week
             </p>
-            <button>Schedule a pickup</button>
+            <button onClick={() => gotoServiceCheck()}>Schedule a pickup</button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

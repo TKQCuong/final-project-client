@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 export default function Howitwork() {
   return (
-    <div className="howitwork">
+    <div className="howitwork" id="howitworks_scroll">
       <h1>how it works</h1>
       <div className="howitwork-card">
         <Container>

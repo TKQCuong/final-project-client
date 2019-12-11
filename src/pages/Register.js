@@ -2,33 +2,15 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
-import Footer from "../components/Footer";
-import Home from "../pages/Home";
 
-export default function Login(props) {
-  // Change navbar CSS
-  //   function changeBackground(color) {
-  //     document.getElementById("navbar").style.backgroundColor = color;
-  //   }
-  //   window.addEventListener("click", function() {
-  //     changeBackground("#f5f5f5");
-  //   });
-
-  //   function changePadding(padding) {
-  //     document.getElementById("navbar").style.paddingBottom = padding;
-  //   }
-  //   window.addEventListener("click", function() {
-  //     changePadding("10px");
-  //   });
-
-  //   Set up Log in, Send to Flask
+export default function Register(props) {
   const [input, setInput] = useState({});
   const handleOnChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const postUser = async () => {
-    const resp = await fetch("https://127.0.0.1:5000/login", {
+    const resp = await fetch("https://127.0.0.1:5000/register", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -37,34 +19,27 @@ export default function Login(props) {
       body: JSON.stringify({ input })
     });
     const data = await resp.json();
+    if (data.false) setVisible(true);
 
-    if (data.false == "wrong pass") setVisible(true);
-    if (data.false == "not email") setShow(true);
     if (data.email) {
       props.setCurrentUser(data.email);
-      localStorage.setItem('token', data.token)
-      props.history.push("/");
-      console.log(data.email, "From data.email");
-      console.log(data.mobile, 'mobile')
+      localStorage.setItem("token", data.token);
+      props.history.push("/schedule-service");
     }
-    if (props.currentUser) 
-      props.history.push("/");
+    console.log("data", data);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     postUser();
   };
-  function gotoServiceCheck() {
-    props.history.push("/servicecheck");
+
+  function gotoLogin() {
+    props.history.push("/login");
   }
 
-  // Alert - Wrong password
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
-  // Alert - Account not existed
-  const [show, setShow] = useState(false);
-  const onClose = () => setShow(false);
 
   return (
     <div>
@@ -74,38 +49,59 @@ export default function Login(props) {
         border="0"
         width="200px"
         id="logo_login"
+        className="logo_form_register"
       />
-      <div className="Form_Login">
+      <div className="Form_Login register_form_register">
         <Alert
-          color="danger"
+          color="warning"
           isOpen={visible}
           toggle={onDismiss}
           className="alert_link"
         >
-          The password that you've entered is incorrect. &nbsp;&nbsp;
-          <a href="" className="alert-link">
-            Forgotten password?
-          </a>
-        </Alert>
-        <Alert
-          color="warning"
-          isOpen={show}
-          toggle={onClose}
-          className="alert_link"
-        >
-          The account that you've entered is not existed. You can register{" "}
-          <a href="" onClick={() => gotoServiceCheck()}>
+          Your account is already existed ! You can Sign in{" "}
+          <a href="" onClick={() => gotoLogin()}>
             here
           </a>
         </Alert>
         {/* <h1>Sign In</h1> */}
         <Form onChange={e => handleOnChange(e)} onSubmit={e => handleSubmit(e)}>
           <Form.Group>
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              name="username"
+              id="form-control-login"
+              className="form-control-register"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Mobile</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter mobile number"
+              name="mobile"
+              id="form-control-login"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter email"
               name="email"
+              id="form-control-login"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter address"
+              name="address"
               id="form-control-login"
               required
             />
@@ -124,19 +120,16 @@ export default function Login(props) {
             <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
           <Button variant="primary" type="submit" id="button_login">
-            Sign In
+            Register
           </Button>
         </Form>
-        <div className="signup_login">
-          <p>Don't have an account?</p>
-          <a href="" onClick={() => gotoServiceCheck()}>
-            Sign up here
+        <div className="signup_login signup_login_register">
+          <p>Already have an account?</p>
+          <a href="" onClick={() => gotoLogin()}>
+            Sign in here
           </a>
         </div>
       </div>
-      {/* <div className="login_footer">
-        <Footer {...props} />
-      </div> */}
     </div>
   );
 }
