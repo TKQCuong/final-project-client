@@ -52,6 +52,7 @@ export default function Navibar(props) {
   function gotoService() {
     props.history.push("/services")
   }
+
   // Dropdown menu
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -93,11 +94,11 @@ export default function Navibar(props) {
                     START SERVICE
                   </Nav.Link>
                   <Dropdown isOpen={dropdownOpen} toggle={toggle} size="sm">
-                    <DropdownToggle caret className="Nav_dropdown">{props.currentUser}</DropdownToggle>
+                    <DropdownToggle caret className="Nav_dropdown">{props.currentUser.username}</DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem onClick={()=>gotoDashboard()}><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dashboard</DropdownItem>
                       <DropdownItem
-                      onClick={() => {history.push("/logout")}}
+                      onClick={() => { if (window.confirm('Do you really want to Sign Out?')) history.push("/logout") } }
                       ><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Log Out</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>

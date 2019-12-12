@@ -24,8 +24,10 @@ function App(props) {
       }
     })
     const data = await response.json()
-    setCurrentUser(data.email)
+    setCurrentUser(data)
+    console.log(data, 'data')
   }
+console.log(currentUser,'asdsad')
 
   useEffect(() => {
     getCombackUserData()
@@ -39,11 +41,10 @@ function App(props) {
         <Route path="/login" render={() => <Login {...props} setCurrentUser={setCurrentUser} currentUser={currentUser}/> }/>
         <Route path="/register" render={() => <Register {...props} setCurrentUser={setCurrentUser}/>} />
         <Route path="/servicecheck" render={() => <Servicecheck {...props} currentUser={currentUser}/>} />
-        <Route path="/dashboard" render={() => <Dashboard {...props} currentUser={currentUser}/>} />
+        <Route path="/dashboard" render={() => <Dashboard {...props} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route path="/schedule-service" render={() => <ScheduleService {...props}/>} />
         <Route path="/services" render={() => <Service {...props}/>} />
         <Route path="/logout" render={() => <Logout setCurrentUser={setCurrentUser}/>} />
-
       </Switch>
       <Footer {...props}/>
     </div>

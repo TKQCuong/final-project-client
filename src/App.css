@@ -1033,8 +1033,340 @@ html {
 
 .ordering-process {
   display: flex;
-  padding-top: 100px;
+  padding-top: 10rem;
+}
+.ordering-process .schedule_badge {
+  padding: 1.25em 3.4em !important;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: none;
+}
+
+.ordering-process img {
+  width: 40px;
 }
 .badge {
   padding: 2.25em 3.4em !important;
+}
+.serv_was_box {
+  float: left;
+  width: 300px;
+  border: 1px solid #ddd;
+  height: 90px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px 10px 10px 10px;
+  cursor: pointer;
+  color: #aaa;
+  margin: 0;
+}
+#serv_box3 {
+  margin-top: 30px;
+}
+#serv_box4 {
+  margin-top: 30px;
+}
+#serv1 {
+  margin-left: 2rem;
+}
+
+#serv3 {
+  margin-left: 2rem;
+}
+/* 
+.schedule_badge::after {
+  border-left: 22px solid !important;
+  position: relative;
+  right: -67px;
+  top: -9px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-left: 20px solid #eeeeee;
+  border-bottom: 30px solid transparent;
+} */
+.checkbox {
+  visibility: hidden;
+  /* display: none; */
+}
+.schedule_servicetype {
+  padding-left: 50px;
+}
+
+.schedule_servicetype h1 {
+  font-size: 18px;
+  padding-left: 1rem;
+  padding-bottom: 20px;
+}
+.schedule_servicetype #schedule_row {
+  padding-left: 1.5rem;
+}
+
+.serv_was_box:focus {
+  color: #1976d2;
+  border: 1px solid #1976d2 !important;
+  font-weight: 600;
+}
+
+.schedule_button {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+.schedule_button button + button {
+  background: #00539a;
+  padding: 8px 12px;
+  margin: 0px 10px;
+  color: white;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+.schedule_button #previous_button {
+  background: #666;
+  padding: 8px 12px;
+  margin: 0px 10px;
+  color: white;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+}
+.schedule_button .disabled:hover {
+  cursor: not-allowed;
+}
+.step1_icon {
+  width: 40px;
+  color: grey;
+  border-color: grey;
+}
+
+.date_main {
+  display: flex;
+  padding-left: 1rem;
+}
+
+.schedule_col:focus {
+  border: 1px solid #1976d2 !important;
+  background: #1976d2 !important;
+  color: white;
+}
+.schedule_col {
+  float: left;
+  width: 100%;
+  padding: 4px 5px !important;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  padding: 3px;
+  height: 54px !important;
+}
+.schedule_col:hover {
+  cursor: pointer;
+}
+.radio_btn {
+  color: white;
+  visibility: hidden;
+  display: none;
+}
+.radio_btn:checked {
+  border: 1px solid #1976d2 !important;
+  background: #1976d2 !important;
+}
+.date-container {
+  padding-top: 5px;
+}
+.date-container .day {
+  font-weight: 500;
+  font-size: 12px;
+}
+.schedule_time h3 {
+  font-size: 14px;
+  padding-left: 1rem;
+  padding-bottom: 20px;
+  padding-top: 1rem;
+}
+
+.schedule_address_detail h1 {
+  font-size: 16px;
+  padding-left: 4rem;
+  padding-bottom: 20px;
+  padding-top: 1rem;
+  text-align: left;
+}
+
+.addre_main {
+  display: flex;
+}
+.addre_box {
+  border: 1px solid #aaa;
+  width: 100%;
+  float: left;
+  margin-bottom: 30px;
+  cursor: pointer;
+  height: 207px;
+  width: 413px;
+  margin-left: 4rem;
+}
+
+.addre_box:focus {
+  border: 1px solid #1976d2 !important;
+}
+
+.addre_box .new button:focus {
+  border: none;
+}
+.addre_box h3 {
+  text-align: left;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.addre_head {
+  display: flex;
+  justify-content: space-between;
+}
+.addre_con {
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 1rem;
+  font-size: 15px;
+  font-weight: 500;
+}
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.new button {
+  border: 0px;
+  background: none;
+  color: #01529a;
+  cursor: pointer;
+  padding-top: 5rem;
+}
+
+/* .step-anchor .active .sa_inner:after {
+  border-left: 20px solid #4baf50;
+}
+.sa_inner::after {
+  position: relative !important;
+  right: -20px;
+  top: 0px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-left: 20px solid #eeeeee;
+  border-bottom: 30px solid transparent;
+} */
+
+.date_main .radio_btn:checked + label.date-container:after {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 7px solid #1975d2;
+}
+
+.schedule_col::after:focus {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 7px solid #1975d2;
+}
+
+.schedule_result h1 {
+  font-size: 18px;
+  padding-left: 4rem;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.schedule_result h3 {
+  font-size: 15px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+/* .service_result h3 {
+  padding-left: 4rem;
+} */
+.service_result div {
+  text-align: left;
+  height: 35px;
+  margin-left: 4rem;
+}
+
+.date_result {
+  /* display: flex; */
+  padding-top: 2rem;
+}
+.date_result h3 {
+  padding-left: 4rem;
+}
+
+.schedule_date_detail {
+  display: flex;
+  padding-left: 4rem;
+}
+
+.date_detail_pickupdate {
+  padding-left: 2rem;
+  border: 2px solid darkgray;
+  border-radius: 11px;
+  padding: 40px;
+  padding-left: 156px;
+  font-weight: 600;
+  font-weight: 600;
+  padding: 34px;
+  font-size: 13px;
+}
+
+.date_detail_pickuptime {
+  margin-left: 4rem;
+  border: 2px solid darkgray;
+  border-radius: 11px;
+  font-weight: 600;
+  font-size: 13px;
+  padding-right: 129px;
+  padding: 50px;
+    padding-left: 65px;
+}
+
+.address_result {
+  padding-top: 2rem;
+}
+
+.address_result h3 {
+  padding-left: 4rem;
+  padding-bottom: 1rem;
+}
+
+.address_result p {
+  text-align: left;
+  padding-left: 4rem;
+}
+.schedule_service_detail {
+  border: 2px solid darkgrey;
+  border-radius: 11px;
+  padding: 14px;
+  padding-left: 17px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-bottom: 43px;
+  font-size: 14px;
 }

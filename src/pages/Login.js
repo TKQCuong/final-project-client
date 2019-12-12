@@ -41,11 +41,9 @@ export default function Login(props) {
     if (data.false == "wrong pass") setVisible(true);
     if (data.false == "not email") setShow(true);
     if (data.email) {
-      props.setCurrentUser(data.email);
+      props.setCurrentUser(data);
       localStorage.setItem('token', data.token)
       props.history.push("/");
-      console.log(data.email, "From data.email");
-      console.log(data.mobile, 'mobile')
     }
     if (props.currentUser) 
       props.history.push("/");
