@@ -88,6 +88,7 @@ export default function ScheduleService() {
                   <div className="btn-container" onClick={() => setOrder({
                       ...order, servicetype: "Wash & Fold"})}>
                     <div class="image">
+                      <input name="servicetype" style={{display:"none"}}></input>
                       <img
                         className="step1_icon"
                         src="https://cdn0.iconfinder.com/data/icons/laundry-19/512/fold-512.png"
@@ -101,17 +102,11 @@ export default function ScheduleService() {
                 </label>
               </div>
               <div class="" tabindex="1">
-                <input
-                  class="checkbox"
-                  type="checkbox"
-                  name="servicetype"
-                  value=""
-                  id="serv2"
-                />
                 <label className="serv_was_box" for="serv1">
                   <div class="btn-container" onClick={() => setOrder({
                       ...order, servicetype: "Wash & Iron"})}>
                     <div class="image">
+                     <input name="servicetype" style={{display:"none"}}></input>
                       <img
                         className="step1_icon"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AAAD6+vovLy/Pz8+Dg4MyMjK0tLTy8vL19fXu7u7Z2dnKysr8/Pytra2NjY3j4+NUVFRzc3OhoaHc3NyAgIDDw8OXl5dpaWliYmJCQkJNTU0+Pj5bW1t6enoUFBQiIiKTk5O6urqvr68XFxcnJycLCwsdHR0/Pz96o3heAAAFnElEQVR4nO2d2WLaMBBFMWHfgxNMCFmAhPT/v7CBptTWjLAkSxrj3vNax+ja0mg2ua0WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJV2WITVjV+T4Nz3BQUuw+s78T6WEriNI/CbiYzAdTSBSTKSEDiJKDC5l1D4HFNhsogvcBBVYJLGVziOq/ApvsJOXIVf8RUu4ioUsKbTyAo70RVG3Q4TEVMTeZou4yts7aIq/BRQGMvx/mEqIfEQU6FMgNGerTd3QegdVYUzEYUByVSFr9Ij8s1KVdiTHpFv6GYknbLxDlH4ID0i35D4UzIjFYSuqvBRekS+2asKN9Ij8g01NdIj8k2bKBTI1YSFpGP30iPyzaOqcC49It8Qv/5ZekS+Idm8o/SIvENMjUhuPyQ9VeFKekS+ITmEnfSIfDNTFQokvsNCCwfSI/INLf40ztS8qwqFasHhIGl1gcR3WNLGmxpSSL+THpFvhsTUDKWH5JsvVaFAjS0sT/+fqYlTYxsuHib9WZpm825oyDsMXWMbTNLHuG00hHCmZjrJXoiLIUCYGlt71SWhmhQBamyjw4u0qjy+a2zD2UZakoLfxPeKmLIa4E/eIHuTFsPiq8Y2jtwPZI6fGlvnXlqHHh+J707drEuB6qbmocbv70xFfYvarr8L1WpspLJcQ6qYGlJXriXuXs2oVt6ZHufOIZJCry1uTYoDGwt6t+7O08N+MunEgLTwOeVqTFfg5nXWiZ1ZJyG3S67GaIt4zmQ6PHfqQNbWt1gYxO6PK7G+OdKk+G57B5LPIryKnf87MSLjsVwnZTN0sxdpsM5BhmRV7B6UJGCWNWh5JO/ApthdcjxrPgg2bAvIMrI4jHi91z6Tnp4/0DNkxn9KmsUL768m+rgKlGl4cS2QWBvaq8U+TQ9XnYzxIU371VYzsRWG4cWVRFrP0DFK/yarlpoHMrp03+0q7Kfk0L9Zt/AVR9TQLSpsxV3uip3Dg2cg5mJr8lf6AsuzYfFDMXFM46Bi5p1zSA9kjAYTQi/QtDBAnPUX9QrStOVc3iSDLHeytNm0ramZYk4fZsUrmIDTtUZtH15o36B5wz+XECj4B9wpWqP1wzBXb1RWCtYKNHf4WGeosNBYh96xp4msiJJeWl0+5s7CRyNP9cRH/gr2syCOWSTL8EJ38tOq34h32HOLWPPJBTeFLVIkujYZdJ6MnS3n75H7XWrhzzju+8Q7yfTX6nxRu/1Ycxg/dxPNl08cE9Zk1GRrutDXCLS14/xdckc+NHGZYxrLPLzQxYPWj5a/TW4j1pzWdxNofkKI2qQzR/sny7vt+VXGXuBcGiOWjT8hNOWTag4C+dleiL1Zk+3st5G7sZ6+Jpw4uqQq6LRJFIeBXRDOWRGz8ILdpZM3t19lvE5lCjIT2b1CbRRekMxqtcdKJ4Qy2WnywdUtbXHbEw0vNFbGvQqhLn6y4ajm9K1K1x2JhmiUV+pnWfNSdqdRocV3U6kuUB5e8Kntahmi/T8FmhWW80UOlX6KhhdqpylfPqt8QGN1ajftrQ/axTzsL7enolzlU2d0kQ1L/v3ETR3hLwkv2GDtto7Vkqi2EF6wAYV9oVEUkjPIhxdsrHZrH0Mh4Vg+k/HJKaxFWckCmjT4tz+xUb1oWdeJD1XCJbxg5+gNnj3RhxecM6NPAtQX4uv/9fTZvGVtaoMW6E4Fs1m92/xICJHxx5Zw6d/jNsw31sKi+YJb1M8Zx+YcXrBbYVM4nZm9nZZKJ4a6tGZj6OhSM40hjf0h3Ogs6VHohvHZ9GX47dXU8/SZPz609eym8GTQ/nvbzJjEerNoR/5Yc3TOQT75Ml+D+MmGNtczveSzh+kv6bEEoJcVc4XTwP+vVmxuMQkDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3/wGyB9XropUi98AAAAASUVORK5CYII="
@@ -131,6 +126,7 @@ export default function ScheduleService() {
                   <div class="btn-container" onClick={() => setOrder({
                       ...order, servicetype: "Wash Iron & Special"})}>
                     <div class="image">
+                      <input name="servicetype" style={{display:"none"}}></input>
                       <img
                         className="step1_icon"
                         src="https://cdn4.iconfinder.com/data/icons/materia-holiday/24/029_051_catch_star_give_present_light_jewel-512.png"
@@ -148,6 +144,7 @@ export default function ScheduleService() {
                   <div class="btn-container" onClick={() => setOrder({
                       ...order, servicetype: "Dry Cleaning"})}>
                     <div class="image">
+                      <input name="servicetype" style={{display:"none"}}></input>
                       <img
                         className="step1_icon"
                         src="data:image/png;base64,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"
