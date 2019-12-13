@@ -26,7 +26,7 @@ export default function Register(props) {
       localStorage.setItem("token", data.token);
       props.history.push("/schedule-service");
     }
-    console.log("data", data);
+    // console.log("data", data);
   };
 
   const handleSubmit = e => {
