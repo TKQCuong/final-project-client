@@ -36,7 +36,7 @@ export default function Servicecheck(props) {
   };
 
   const postCheckService = async () => {
-    const resp = await fetch("https://127.0.0.1:5000/servicecheck", {
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/servicecheck`, {
       method: "POST",
       headers: {
         Accept: "application/json",

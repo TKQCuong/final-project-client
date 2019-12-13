@@ -10,7 +10,7 @@ export default function Register(props) {
   };
 
   const postUser = async () => {
-    const resp = await fetch("https://127.0.0.1:5000/register", {
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",

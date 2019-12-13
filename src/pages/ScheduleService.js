@@ -7,7 +7,7 @@ export default function ScheduleService() {
   // Create Order
   let history = useHistory()
   const createOrder = async props => {
-    const resp = await fetch("https://127.0.0.1:5000/schedule-service", {
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/schedule-service`, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("token"),

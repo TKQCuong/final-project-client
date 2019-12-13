@@ -17,7 +17,7 @@ function App(props) {
   const [currentUser, setCurrentUser]= useState(null)
 
   const getCombackUserData = async () => {
-    const response = await fetch("https://127.0.0.1:5000/getinfo", {
+    const response = await fetch(`${process.env.REACT_APP_URL_DATABASE}/getinfo`, {
       method: "GET",
       headers: {
         Authorization: `Token ${localStorage.getItem("token")}`
