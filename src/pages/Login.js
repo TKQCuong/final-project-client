@@ -6,21 +6,6 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 
 export default function Login(props) {
-  // Change navbar CSS
-  //   function changeBackground(color) {
-  //     document.getElementById("navbar").style.backgroundColor = color;
-  //   }
-  //   window.addEventListener("click", function() {
-  //     changeBackground("#f5f5f5");
-  //   });
-
-  //   function changePadding(padding) {
-  //     document.getElementById("navbar").style.paddingBottom = padding;
-  //   }
-  //   window.addEventListener("click", function() {
-  //     changePadding("10px");
-  //   });
-
   //   Set up Log in, Send to Flask
   const [input, setInput] = useState({});
   const handleOnChange = e => {
@@ -28,6 +13,7 @@ export default function Login(props) {
   };
 
   const postUser = async () => {
+    console.log('Logging in')
     const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/login`, {
       method: "POST",
       headers: {
@@ -41,6 +27,7 @@ export default function Login(props) {
     if (data.false === "wrong pass") setVisible(true);
     if (data.false === "not email") setShow(true);
     if (data.email) {
+      console.log('sksksk')
       props.setCurrentUser(data);
       localStorage.setItem('token', data.token)
       props.history.push("/");

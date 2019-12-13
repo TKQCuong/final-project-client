@@ -29,7 +29,6 @@ export default function ScheduleService() {
   };
 
   const [order, setOrder] = useState({});
-
   const [step, setStep] = useState(1);
   const [time, setTime] = useState(0);
 
@@ -85,22 +84,9 @@ export default function ScheduleService() {
             <h1 style={{ textAlign: "left" }}>Choose the services</h1>
             <div class="row" id="schedule_row">
               <div class="" tabindex="1">
-                <input
-                  class="checkbox"
-                  type="checkbox"
-                  name="servicetype"
-                  value=""
-                  id="serv1"
-                  onChange={e =>
-                    setOrder({
-                      ...order,
-                      servicetype: document.getElementById("sertype1")
-                        .textContent
-                    })
-                  }
-                />
                 <label className="serv_was_box" for="serv1" id="step1_box">
-                  <div className="btn-container">
+                  <div className="btn-container" onClick={() => setOrder({
+                      ...order, servicetype: "Wash & Fold"})}>
                     <div class="image">
                       <img
                         className="step1_icon"
@@ -121,16 +107,10 @@ export default function ScheduleService() {
                   name="servicetype"
                   value=""
                   id="serv2"
-                  onChange={e =>
-                    setOrder({
-                      ...order,
-                      servicetype: document.getElementById("sertype2")
-                        .textContent
-                    })
-                  }
                 />
                 <label className="serv_was_box" for="serv1">
-                  <div class="btn-container">
+                  <div class="btn-container" onClick={() => setOrder({
+                      ...order, servicetype: "Wash & Iron"})}>
                     <div class="image">
                       <img
                         className="step1_icon"
@@ -146,23 +126,10 @@ export default function ScheduleService() {
               </div>
             </div>
             <div className="row" id="schedule_row">
-              <div class="" onclick="NextBtn()" tabindex="1">
-                <input
-                  class="checkbox"
-                  type="checkbox"
-                  name="servicetype"
-                  value=""
-                  id="serv3"
-                  onChange={e =>
-                    setOrder({
-                      ...order,
-                      servicetype: document.getElementById("sertype3")
-                        .textContent
-                    })
-                  }
-                />
+              <div class="" tabindex="1">
                 <label className="serv_was_box" for="serv1" id="serv_box3">
-                  <div class="btn-container">
+                  <div class="btn-container" onClick={() => setOrder({
+                      ...order, servicetype: "Wash Iron & Special"})}>
                     <div class="image">
                       <img
                         className="step1_icon"
@@ -177,22 +144,9 @@ export default function ScheduleService() {
                 </label>
               </div>
               <div class="" onclick="NextBtn()" tabindex="1">
-                <input
-                  class="checkbox"
-                  type="checkbox"
-                  name="servicetype"
-                  value=""
-                  id="serv4"
-                  onChange={e =>
-                    setOrder({
-                      ...order,
-                      servicetype: document.getElementById("sertype4")
-                        .textContent
-                    })
-                  }
-                />
                 <label className="serv_was_box" for="serv1" id="serv_box4">
-                  <div class="btn-container">
+                  <div class="btn-container" onClick={() => setOrder({
+                      ...order, servicetype: "Dry Cleaning"})}>
                     <div class="image">
                       <img
                         className="step1_icon"

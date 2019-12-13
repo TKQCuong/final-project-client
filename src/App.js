@@ -24,7 +24,9 @@ function App(props) {
       }
     })
     const data = await response.json()
-    setCurrentUser(data)
+    if (data.email) {
+      setCurrentUser(data)
+    }
   }
 console.log(currentUser,'asdsad')
 
