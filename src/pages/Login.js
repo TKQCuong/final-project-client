@@ -38,8 +38,8 @@ export default function Login(props) {
     });
     const data = await resp.json();
 
-    if (data.false == "wrong pass") setVisible(true);
-    if (data.false == "not email") setShow(true);
+    if (data.false === "wrong pass") setVisible(true);
+    if (data.false === "not email") setShow(true);
     if (data.email) {
       props.setCurrentUser(data);
       localStorage.setItem('token', data.token)

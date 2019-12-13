@@ -22,7 +22,7 @@ export default function Register(props) {
     if (data.false) setVisible(true);
 
     if (data.email) {
-      props.setCurrentUser(data.email);
+      props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
       props.history.push("/schedule-service");
     }
@@ -96,7 +96,7 @@ export default function Register(props) {
               required
             />
           </Form.Group>
-          <Form.Group>
+          {/* <Form.Group>
             <Form.Label>Address</Form.Label>
             <Form.Control
               type="text"
@@ -105,7 +105,7 @@ export default function Register(props) {
               id="form-control-login"
               required
             />
-          </Form.Group>
+          </Form.Group> */}
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control

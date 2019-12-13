@@ -1,19 +1,49 @@
 import React, { useState } from "react";
 import { Badge } from "reactstrap";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Modal, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 export default function ScheduleService() {
+  // Create Order
+  let history = useHistory()
+  const createOrder = async props => {
+    const resp = await fetch("https://127.0.0.1:5000/schedule-service", {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ order })
+    });
+    const data = await resp.json();
+
+    if (data.success) {
+      history.push("/dashboard");
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    createOrder();
+  };
+
   const [order, setOrder] = useState({});
+
   const [step, setStep] = useState(1);
   const [time, setTime] = useState(0);
 
+  // Address Modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Date and Time
   const getTime = () => {
     switch (time) {
       case 0:
         return (
-          <div style={{ textAlign: "left", fontSize: "14px" }}>
-            Please choose the date and time that your clothes will be picked up
-          </div>
+          <div style={{ textAlign: "left", fontSize: "14px" }}>no time</div>
         );
       case 1:
         return (
@@ -28,7 +58,7 @@ export default function ScheduleService() {
         );
       case 2:
         return (
-          <div style={{ textAlign: "left", fontSize: "14px" }}>time 2</div>
+          <div style={{ textAlign: "left", fontSize: "14px" }}>time 3</div>
         );
       case 3:
         return (
@@ -39,10 +69,6 @@ export default function ScheduleService() {
         );
       case 4:
         return (
-          <div style={{ textAlign: "left", fontSize: "14px" }}>time 4</div>
-        );
-      case 5:
-        return (
           <div style={{ textAlign: "left", fontSize: "14px" }}>time 5</div>
         );
       default:
@@ -50,8 +76,8 @@ export default function ScheduleService() {
     }
   };
 
-  const getForm = () => {
-    const next_button = document.getElementById("service_next_button")
+  //Main Form ([Service, Date, Address], result)
+  const getForm = props => {
     switch (step) {
       case 1:
         return (
@@ -62,7 +88,7 @@ export default function ScheduleService() {
                 <input
                   class="checkbox"
                   type="checkbox"
-                  name="service[1]"
+                  name="servicetype"
                   value=""
                   id="serv1"
                   onChange={e =>
@@ -92,7 +118,7 @@ export default function ScheduleService() {
                 <input
                   class="checkbox"
                   type="checkbox"
-                  name="service[2]"
+                  name="servicetype"
                   value=""
                   id="serv2"
                   onChange={e =>
@@ -124,7 +150,7 @@ export default function ScheduleService() {
                 <input
                   class="checkbox"
                   type="checkbox"
-                  name="service[3]"
+                  name="servicetype"
                   value=""
                   id="serv3"
                   onChange={e =>
@@ -154,7 +180,7 @@ export default function ScheduleService() {
                 <input
                   class="checkbox"
                   type="checkbox"
-                  name="checkbox"
+                  name="servicetype"
                   value=""
                   id="serv4"
                   onChange={e =>
@@ -187,11 +213,17 @@ export default function ScheduleService() {
                 Previous
               </button>
 
-              {order.servicetype != null ?
-                  <button onClick={() => setStep(2)}>Next</button>
-              :
-                <button style={{cursor:"not-allowed"}} id="previous_button" disabled>Next</button>
-              }
+              {order.servicetype != null ? (
+                <button onClick={() => setStep(2)}>Next</button>
+              ) : (
+                <button
+                  style={{ cursor: "not-allowed" }}
+                  id="previous_button"
+                  disabled
+                >
+                  Next
+                </button>
+              )}
 
               {/* <button id="service_next_button" onClick={() => {if (order.servicetype != null) setStep(2)}}>Next</button> */}
             </div>
@@ -209,10 +241,10 @@ export default function ScheduleService() {
                 tabindex="1"
               >
                 <input
-                  className="radio_btn"
+                  className="radio_btn first_date"
                   type="radio"
-                  //   checked=""
-                  name="radio"
+                  checked=""
+                  name="dateandtime"
                   value=""
                   id="serv1"
                   onChange={e =>
@@ -236,7 +268,7 @@ export default function ScheduleService() {
                 <input
                   className="radio_btn"
                   type="radio"
-                  name="radio"
+                  name="dateandtime"
                   value=""
                   id="serv2"
                   onChange={e =>
@@ -260,7 +292,7 @@ export default function ScheduleService() {
                 <input
                   className="radio_btn"
                   type="radio"
-                  name="radio"
+                  name="dateandtime"
                   value=""
                   id="serv3"
                   onChange={e =>
@@ -284,7 +316,7 @@ export default function ScheduleService() {
                 <input
                   className="radio_btn"
                   type="radio"
-                  name="radio"
+                  name="dateandtime"
                   value=""
                   id="serv4"
                   onChange={e =>
@@ -308,7 +340,7 @@ export default function ScheduleService() {
                 <input
                   className="radio_btn"
                   type="radio"
-                  name="radio"
+                  name="dateandtime"
                   value=""
                   id="serv5"
                   onChange={e =>
@@ -335,7 +367,24 @@ export default function ScheduleService() {
               <button id="previous_button" onClick={() => setStep(1)}>
                 Previous
               </button>
-              <button onClick={() => {if(order.dateandtime != null) setStep(3)}}>Next</button>
+              {order.dateandtime != null ? (
+                <button onClick={() => setStep(3)}>Next</button>
+              ) : (
+                <button
+                  style={{ cursor: "not-allowed" }}
+                  id="previous_button"
+                  disabled
+                >
+                  Next
+                </button>
+              )}
+              {/* <button
+                onClick={() => {
+                  if (order.dateandtime != null) setStep(3);
+                }}
+              >
+                Next
+              </button> */}
             </div>
           </div>
         );
@@ -374,10 +423,93 @@ export default function ScheduleService() {
                   </div>
                   <hr></hr>
                   <div className="addre_con" id="add1">
-                    <p>
-                      180/2,Venkatrangam St, Narayana Krishnaraja
-                      Puram,triplicane
-                    </p>
+                    <a href="#">
+                      <Button onClick={handleShow}>+ Add a new address</Button>
+                    </a>
+                    <Modal
+                      show={show}
+                      onHide={handleClose}
+                      dialogClassName="modal-90w"
+                      aria-labelledby="example-custom-modal-styling-title"
+                    >
+                      <Modal.Header closeButton className="address-modalheader">
+                        <Modal.Title>Add Address</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        Address Type
+                        <div className="address_type">
+                          <Container>
+                            <Row className="show-grid">
+                              <Col xs={2} md={2}>
+                                <input
+                                  class="radio_btn"
+                                  type="radio"
+                                  name="a_type"
+                                  value="Home"
+                                  id="hwo1"
+                                />
+                                <label class="ap_hw" for="hwo1">
+                                  Home{" "}
+                                </label>
+                              </Col>
+                              <Col xs={2} md={2}>
+                                <input
+                                  class="radio_btn"
+                                  type="radio"
+                                  name="a_type"
+                                  value="Home"
+                                  id="hwo1"
+                                />
+                                <label class="ap_hw" for="hwo1">
+                                  Work{" "}
+                                </label>
+                              </Col>
+                              <Col xs={2} md={2}>
+                                <input
+                                  class="radio_btn"
+                                  type="radio"
+                                  name="a_type"
+                                  value="Home"
+                                  id="hwo1"
+                                />
+                                <label class="ap_hw" for="hwo1">
+                                  Other{" "}
+                                </label>
+                              </Col>
+                            </Row>
+                          </Container>
+                          <div
+                            class="address-form-group"
+                            style={{ paddingTop: "1rem" }}
+                          >
+                            <label for="">Street No :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="address"
+                              id=""
+                              onChange={e =>
+                                setOrder({ ...order, address: e.target.value })
+                              }
+                            />
+                          </div>
+                          <div class="address-form-group">
+                            <label for="">Flat/House No :</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="address"
+                              id=""
+                            />
+                          </div>
+                        </div>
+                      </Modal.Body>
+                      <Modal.Footer className="address-modal-footer">
+                        <Button variant="primary" onClick={handleClose}>
+                          Save
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
                   </div>
                 </label>
               </div>
@@ -396,9 +528,17 @@ export default function ScheduleService() {
               <button id="previous_button" onClick={() => setStep(2)}>
                 Previous
               </button>
-              {order.address != null ?
-              <button onClick={()=> setStep(4)}>Next</button> :
-              <button id="previous_button" style={{cursor:"not-allowed"}} disabled>Next</button>}
+              {order.address != null ? (
+                <button onClick={() => setStep(4)}>Next</button>
+              ) : (
+                <button
+                  id="previous_button"
+                  style={{ cursor: "not-allowed" }}
+                  disabled
+                >
+                  Next
+                </button>
+              )}
               {/* <button onClick={() => {if (order.address != null) setStep(4)}}>Next</button> */}
             </div>
           </div>
@@ -442,7 +582,9 @@ export default function ScheduleService() {
               <button id="previous_button" onClick={() => setStep(3)}>
                 Previous
               </button>
-              <button>Schedule Pickup</button>
+              <button type="submit" onClick={e => handleSubmit(e)}>
+                Schedule Pickup
+              </button>
             </div>
           </div>
         );

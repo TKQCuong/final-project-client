@@ -25,7 +25,6 @@ function App(props) {
     })
     const data = await response.json()
     setCurrentUser(data)
-    console.log(data, 'data')
   }
 console.log(currentUser,'asdsad')
 
@@ -42,7 +41,7 @@ console.log(currentUser,'asdsad')
         <Route path="/register" render={() => <Register {...props} setCurrentUser={setCurrentUser}/>} />
         <Route path="/servicecheck" render={() => <Servicecheck {...props} currentUser={currentUser}/>} />
         <Route path="/dashboard" render={() => <Dashboard {...props} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-        <Route path="/schedule-service" render={() => <ScheduleService {...props}/>} />
+        <Route path="/schedule-service" render={() => <ScheduleService {...props} currentUser={currentUser}/>} />
         <Route path="/services" render={() => <Service {...props}/>} />
         <Route path="/logout" render={() => <Logout setCurrentUser={setCurrentUser}/>} />
       </Switch>

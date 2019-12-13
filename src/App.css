@@ -962,6 +962,7 @@ html {
   font-size: 20px;
   padding-top: 15px;
   color: #249bce;
+  padding-bottom: 7px;
 }
 .dashboard_userinfo {
   padding-left: 2rem;
@@ -994,6 +995,7 @@ html {
 .dashboard_nav_col .card {
   background: white;
   cursor: pointer;
+  width: 16rem !important;
 }
 
 .dashboard_nav_col .card:focus {
@@ -1290,6 +1292,18 @@ hr {
   border-top: 7px solid #1975d2;
 }
 
+.first_date:focus {
+  content: "";
+  position: absolute;
+  left: 40%;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 7px solid #1975d2;
+}
+
 .schedule_result h1 {
   font-size: 18px;
   padding-left: 4rem;
@@ -1344,7 +1358,7 @@ hr {
   font-size: 13px;
   padding-right: 129px;
   padding: 50px;
-    padding-left: 65px;
+  padding-left: 65px;
 }
 
 .address_result {
@@ -1369,4 +1383,75 @@ hr {
   width: fit-content;
   padding-bottom: 43px;
   font-size: 14px;
+}
+
+.Nav_dropdown:hover > .fa-user-circle {
+  -webkit-animation: fa-spin 2s infinite linear;
+  -moz-animation: fa-spin 2s infinite linear;
+  -o-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+.fa-user-circle {
+  padding-right: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .show-grid col {
+    flex: 0 0 16.666667% !important;
+    max-width: 13.666667% !important;
+  }
+}
+.ap_hw {
+  cursor: pointer;
+  border: 2px solid slategrey;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  display: inline-block;
+  max-width: 100%;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .col-md-2 {
+    flex: 0 0 16.666667%;
+    max-width: 13.666667% !important;
+  }
+}
+
+.address-form-group label {
+  color: slategrey;
+
+}
+
+.address_type label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.address-modal-footer {
+  border-top: none;
+  display: flex;
+  justify-content: center;
+}
+
+.address-modal-footer button {
+  padding: 8px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.address-modalheader {
+  padding: 0;
+  padding-bottom: 10px;
 }

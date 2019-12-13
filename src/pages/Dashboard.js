@@ -16,11 +16,11 @@ export default function Dashboard(props) {
             </div>
             <div className="dashboard_userinfo">
               <h3>{props.currentUser && props.currentUser.username}</h3>
-              <p>
+              <p style={{fontSize:"13px"}}>
                 <i class="fas fa-envelope"></i>&nbsp;&nbsp;
                 {props.currentUser && props.currentUser.email}
               </p>
-              <p>
+              <p style={{fontSize:"13px"}}>
                 <i class="fas fa-phone"></i>&nbsp;&nbsp;{props.currentUser && props.currentUser.mobile}
               </p>
             </div>

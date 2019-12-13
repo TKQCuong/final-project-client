@@ -10,6 +10,7 @@ import {
 
 export default function Navibar(props) {
   let history = useHistory()
+
   window.onscroll = function() {
     scrollFunction();
   };
@@ -23,15 +24,17 @@ export default function Navibar(props) {
     } else {
       document.getElementById("navbar").style.paddingBottom = "35px";
     }
-    if (
-      document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80
-    ) {
-      document.getElementById("footer").style.display = "block";
-    } else {
-      document.getElementById("footer").style.display = "none";
-    }
   }
+
+  //   if (
+  //     document.body.scrollTop > 80 ||
+  //     document.documentElement.scrollTop > 80
+  //   ) {
+  //     document.getElementById("footer").style.display = "block";
+  //   } else {
+  //     document.getElementById("footer").style.display = "none";
+  //   }
+  // }
 
   function gotoLogin() {
     props.history.push("/login");
@@ -94,7 +97,7 @@ export default function Navibar(props) {
                     START SERVICE
                   </Nav.Link>
                   <Dropdown isOpen={dropdownOpen} toggle={toggle} size="sm">
-                    <DropdownToggle caret className="Nav_dropdown">{props.currentUser.username}</DropdownToggle>
+                    <DropdownToggle caret className="Nav_dropdown"><i class="far fa-user-circle" style={{fontSize:"22px"}}></i>&nbsp;&nbsp;&nbsp;&nbsp; Hi., {props.currentUser.username}&nbsp;&nbsp;&nbsp;&nbsp;</DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem onClick={()=>gotoDashboard()}><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dashboard</DropdownItem>
                       <DropdownItem
