@@ -1106,14 +1106,23 @@ html {
   padding-left: 1.5rem;
 }
 
-.serv_was_box:focus {
+/* .serv_was_box:focus {
   color: #1976d2;
   border: 1px solid #1976d2 !important;
   font-weight: 600;
+} */
+
+.focusing:focus {
+  /* border: 1px solid #1976d2 !important; */
+  font-weight: 600;
 }
+/* 
+.text-sertype1:focus {
+  color: #00539a;
+} */
 
 .schedule_button {
-  padding-top: 2.5rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 .schedule_button button + button {
@@ -1125,6 +1134,7 @@ html {
   font-size: 16px;
   font-weight: 600;
   border: none;
+  border-radius: 5px;
 }
 .schedule_button #previous_button {
   background: #666;
@@ -1135,6 +1145,7 @@ html {
   font-size: 16px;
   font-weight: 600;
   border: none;
+  border-radius: 5px;
 }
 .schedule_button .disabled:hover {
   cursor: not-allowed;
@@ -1268,7 +1279,7 @@ hr {
   border-bottom: 30px solid transparent;
 } */
 
-.date_main .radio_btn:checked + label.date-container:after {
+/* .date_main .radio_btn:checked + label.date-container:after {
   content: "";
   position: absolute;
   left: 40%;
@@ -1290,7 +1301,7 @@ hr {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 7px solid #1975d2;
-}
+} */
 
 .first_date:focus {
   content: "";
@@ -1454,4 +1465,30 @@ hr {
 .address-modalheader {
   padding: 0;
   padding-bottom: 10px;
+}
+
+.dateandtime_case1 .col {
+  flex-grow: 0 !important;
+}
+.dateandtime_case1 .col img {
+  height: 40px;
+}
+.timefrom {
+  display: inline-flex;
+  padding: 7px;
+  border: 0.5px solid #aaa;
+  border-radius: 4px;
+  margin: 6px;
+  cursor: pointer;
+  color: darkslategrey;
+  margin-left: 5rem;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  padding-left: 11px;
+    padding-right: 8px;
+}
+.timefrom:focus {
+  background-color: #337ab7;
+  color: white;
 }
