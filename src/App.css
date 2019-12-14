@@ -949,7 +949,7 @@ html {
   padding: 15px 0px;
   min-height: 100px;
   background: #eee;
-  height: calc(45vh - 106px);
+  height: calc(43vh - 106px);
   margin-top: 6rem;
 }
 .dashboard_avatar {
@@ -967,7 +967,7 @@ html {
 .dashboard_userinfo {
   padding-left: 2rem;
   text-align: left;
-  line-height: 15px;
+  line-height: 13px;
 }
 .dashboard_nav {
   display: flex;
@@ -1093,8 +1093,11 @@ html {
   visibility: hidden;
   /* display: none; */
 }
+.service_row {
+  padding-left: 1rem;
+}
 .schedule_servicetype {
-  padding-left: 50px;
+  padding-left: 4.5rem;
 }
 
 .schedule_servicetype h1 {
@@ -1122,7 +1125,7 @@ html {
 } */
 
 .schedule_button {
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-bottom: 2rem;
 }
 .schedule_button button + button {
@@ -1245,12 +1248,23 @@ html {
   display: flex;
   justify-content: space-between;
 }
+.addre_head button {
+  padding: 0;
+  background-color: white;
+  border: none;
+  margin-top: 1px;
+  margin-right: 7px;
+}
 .addre_con {
-  text-align: left;
-  padding-left: 20px;
-  padding-top: 1rem;
+  text-align: center;
   font-size: 15px;
   font-weight: 500;
+  padding-top: 3rem;
+}
+.addre_con .add_address_button {
+  background-color: white;
+  border: none;
+  color: darkblue;
 }
 hr {
   margin-top: 0.5rem;
@@ -1435,7 +1449,6 @@ hr {
 
 .address-form-group label {
   color: slategrey;
-
 }
 
 .address_type label {
@@ -1486,9 +1499,166 @@ hr {
   font-size: 12px;
   font-weight: 500;
   padding-left: 11px;
-    padding-right: 8px;
+  padding-right: 8px;
 }
 .timefrom:focus {
   background-color: #337ab7;
   color: white;
 }
+
+/* Button Scroll to Top */
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #4c6e8c; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 7px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* Schedule badge */
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+}
+
+.container1 {
+  font-family: "Lato", sans-serif;
+  width: 2000px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  padding-left: 5rem;
+}
+
+.wrapper {
+  display: table-cell;
+  height: 400px;
+  vertical-align: middle;
+}
+
+.nav {
+  margin-top: 40px;
+}
+
+.pull-right {
+  float: right;
+}
+
+a,
+a:active {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #999;
+}
+
+/* Breadcrups CSS */
+
+.arrow-steps .step {
+  font-size: 14px;
+  text-align: left;
+  color: black !important;
+  cursor: default;
+  margin: 0 3px;
+  padding: 16px 68px 16px 37px;
+  min-width: 180px;
+  float: left;
+  position: relative;
+  background-color: #d9e3f7;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  line-height: 6px;
+}
+
+.arrow-steps .step:after,
+.arrow-steps .step:before {
+  content: " ";
+  position: absolute;
+  top: 0px;
+  right: -17px;
+  width: 0;
+  height: 0;
+  border-top: 27px solid transparent;
+  border-bottom: 34px solid transparent;
+  border-left: 17px solid #d9e3f7;
+  z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.arrow-steps .step:before {
+  right: auto;
+  left: 0;
+  border-left: 17px solid #fff;
+  z-index: 0;
+}
+
+.arrow-steps .step:first-child:before {
+  border: none;
+}
+
+.arrow-steps .step:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.arrow-steps .step span {
+  position: relative;
+}
+
+.arrow-steps .step span:before {
+  opacity: 0;
+  content: "✔";
+  position: absolute;
+  top: -2px;
+  left: -20px;
+}
+
+.arrow-steps .step.done span:before {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease 0.5s;
+  -moz-transition: opacity 0.3s ease 0.5s;
+  -ms-transition: opacity 0.3s ease 0.5s;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+.arrow-steps .step.current {
+  color: #fff;
+  background-color: #23468c;
+}
+
+.arrow-steps .step.current:after {
+  border-left: 17px solid #83e5de;
+}
+.step span {
+  font-size: 11px;
+}
+
+#step2 {
+  margin-left: 2rem;
+}
+#step3 {
+  margin-left: 2rem;
+}
+#step4 {
+  margin-left: 2rem;
+}
+

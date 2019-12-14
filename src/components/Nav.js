@@ -11,31 +11,6 @@ import {
 export default function Navibar(props) {
   let history = useHistory()
 
-  // window.onscroll = function() {
-  //   scrollFunction();
-  // };
-  // console.log(props.currentUser, "props.currentUser from Nav");
-  // function scrollFunction() {
-  //   if (
-  //     document.body.scrollTop > 80 ||
-  //     document.documentElement.scrollTop > 80
-  //   ) {
-  //     document.getElementById("navbar").style.paddingBottom = "10px";
-  //   } else {
-  //     document.getElementById("navbar").style.paddingBottom = "35px";
-  //   }
-  // }
-
-  //   if (
-  //     document.body.scrollTop > 80 ||
-  //     document.documentElement.scrollTop > 80
-  //   ) {
-  //     document.getElementById("footer").style.display = "block";
-  //   } else {
-  //     document.getElementById("footer").style.display = "none";
-  //   }
-  // }
-
   function gotoLogin() {
     props.history.push("/login");
   }

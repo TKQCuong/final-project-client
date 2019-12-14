@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import ScheduleService from "./pages/ScheduleService";
 import Service from "./pages/Services"
 import Logout from "./pages/Logout"
+import Scrolltop from './components/Scrolltop';
 
 function App(props) {
   const [currentUser, setCurrentUser]= useState(null)
@@ -37,6 +38,7 @@ console.log(currentUser,'asdsad')
   return (
     <div className="App">
       <Navibar {...props} currentUser={currentUser}/>
+      <Scrolltop />
       <Switch>
         <Route exact path="/" render={() => <Home {...props} />} />
         <Route path="/login" render={() => <Login {...props} setCurrentUser={setCurrentUser} currentUser={currentUser}/> }/>

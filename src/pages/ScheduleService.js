@@ -123,7 +123,9 @@ export default function ScheduleService() {
         );
       case 2:
         return (
-          <div style={{ textAlign: "left", fontSize: "14px", paddingLeft: "1rem" }}>
+          <div
+            style={{ textAlign: "left", fontSize: "14px", paddingLeft: "1rem" }}
+          >
             Sorry, no available slots for the selected date please try with
             future dates.
           </div>
@@ -557,7 +559,11 @@ export default function ScheduleService() {
                   name="dateandtime"
                   value=""
                   id="serv3"
-                  onChange={e => setOrder({ dateandtime: document.getElementById("date3").textContent })}
+                  onChange={e =>
+                    setOrder({
+                      dateandtime: document.getElementById("date3").textContent
+                    })
+                  }
                   onClick={() => setTime(3)}
                 />
                 <label className="date-container" for="serv3" id="date3">
@@ -656,15 +662,9 @@ export default function ScheduleService() {
                 <input
                   className="radio_btn"
                   type="radio"
-                  name="address"
+                  name="addre"
                   value="1203"
                   id="adss1"
-                  onChange={e =>
-                    setOrder({
-                      ...order,
-                      address: document.getElementById("add1").textContent
-                    })
-                  }
                 />
                 <label className="addre_box" for="adss1">
                   <div className="addre_head">
@@ -674,15 +674,27 @@ export default function ScheduleService() {
                       onclick="EditAddr(1203)"
                       data-toggle="modal"
                       data-target="#edit_addr"
+                      onClick={handleShow}
                     >
-                      <img src="images/edit.png" title="" width="16" alt="" />
+                      {/* <img src="images/edit.png" title="" width="16" alt="" /> */}
+                      <i class="far fa-edit"></i>
                     </button>
                   </div>
                   <hr></hr>
                   <div className="addre_con" id="add1">
-                    <a href="#">
-                      <Button onClick={handleShow}>+ Add a new address</Button>
-                    </a>
+                    {order.address ? (
+                      <p>{order.address}</p>
+                    ) : (
+                      <a href="#">
+                        <Button
+                          className="add_address_button"
+                          onClick={handleShow}
+                        >
+                          + Add a new address
+                        </Button>
+                      </a>
+                    )}
+
                     <Modal
                       show={show}
                       onHide={handleClose}
@@ -736,28 +748,31 @@ export default function ScheduleService() {
                             </Row>
                           </Container>
                           <div
-                            class="address-form-group"
-                            style={{ paddingTop: "1rem" }}
+                            onChange={e =>
+                              setOrder({ ...order, address: e.target.value })
+                            }
                           >
-                            <label for="">Street No :</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="address"
-                              id=""
-                              onChange={e =>
-                                setOrder({ ...order, address: e.target.value })
-                              }
-                            />
-                          </div>
-                          <div class="address-form-group">
-                            <label for="">Flat/House No :</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="address"
-                              id=""
-                            />
+                            <div
+                              class="address-form-group"
+                              style={{ paddingTop: "1rem" }}
+                            >
+                              <label for="">Street No :</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                name="address"
+                                id=""
+                              />
+                            </div>
+                            <div class="address-form-group">
+                              <label for="">Floor/ Unit No :</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                name=""
+                                id=""
+                              />
+                            </div>
                           </div>
                         </div>
                       </Modal.Body>
@@ -770,22 +785,13 @@ export default function ScheduleService() {
                   </div>
                 </label>
               </div>
-              <div
-                className="col-md-5 col-sm-6 col-xs-12"
-                data-toggle="modal"
-                data-target="#add_addr"
-              >
-                <div className="addre_box new">
-                  <button type="button">+ Add a new address</button>
-                </div>
-              </div>
             </div>
             <div className="schedule_button">
               {/* <input onChange={(e) => setOrder({ ...order, typeofservice: e.target.value})} /> */}
               <button id="previous_button" onClick={() => setStep(2)}>
                 Previous
               </button>
-              {order.address != null ? (
+              {order.address ? (
                 <button onClick={() => setStep(4)}>Next</button>
               ) : (
                 <button
@@ -853,58 +859,41 @@ export default function ScheduleService() {
   console.log({ order });
   return (
     <>
-      <div className="ordering-process">
-        {/* <div style={{ padding: 50, height: 500, width: 500, backgroundColor: getColor(), border: '1px solid red'}}>
-                    {getForm()}
-                </div> */}
-        <div style={{ paddingLeft: 60, paddingTop: 50, paddingBottom: 50 }}>
-          <Badge
-            color="black"
-            style={{
-              backgroundColor: step === 1 ? "#83e5de" : "rgba(232, 232, 232, 1)"
-            }}
-            className="schedule_badge"
-          >
-            {/* <img src="https://s3.amazonaws.com/freestock-prod/450/freestock_569724046.jpg"></img> */}
-            Service detail<br></br>
-            <small>Select your type of service</small>
-          </Badge>
-        </div>
-        <div style={{ paddingLeft: 50, paddingTop: 50 }}>
-          <Badge
-            color="black"
-            style={{
-              backgroundColor: step === 2 ? "#83e5de" : "rgba(232, 232, 232, 1)"
-            }}
-            className="schedule_badge"
-          >
-            Date and Time<br></br>
-            <small>Select service date and time</small>
-          </Badge>
-        </div>
-        <div style={{ paddingLeft: 50, paddingTop: 50 }}>
-          <Badge
-            color="black"
-            style={{
-              backgroundColor: step === 3 ? "#83e5de" : "rgba(232, 232, 232, 1)"
-            }}
-            className="schedule_badge"
-          >
-            Address<br></br>
-            <small>Select service address</small>
-          </Badge>
-        </div>
-        <div style={{ paddingLeft: 50, paddingTop: 50 }}>
-          <Badge
-            color="black"
-            style={{
-              backgroundColor: step === 4 ? "#83e5de" : "rgba(232, 232, 232, 1)"
-            }}
-            className="schedule_badge"
-          >
-            Review and Schedule<br></br>
-            <small>Review your order and schedule</small>
-          </Badge>
+      <div id="testing badge" style={{paddingTop:"3rem"}}>
+        <div className="container1">
+          <div className="wrapper" style={{verticalAlign: "bottom", height:"300px"}}>
+            <div className="arrow-steps clearfix">
+              <div className="step current" id="step1" style={{
+              backgroundColor: step === 1 ? "#83e5de" : "#83e5de"
+            }}>
+                {" "}
+                <p> Service Details</p>{" "}
+                <span>Select your type of service</span>
+              </div>
+              <div className="step current" id="step2" style={{
+              backgroundColor: step === 1 ? "rgba(232, 232, 232, 1)" : "#83e5de"
+            }}>
+                {" "}
+                <p> Date and Time</p>{" "}
+                <span>Select service date and time</span>
+              </div>
+              <div className="step current" id="step3" style={{
+              backgroundColor:
+                step === 3 || step === 4 ? "#83e5de" : "rgba(232, 232, 232, 1)"
+            }}>
+                {" "}
+                <p> Address</p>{" "}
+                <span>Select service address</span>
+              </div>
+              <div className="step current" id="step4" style={{
+              backgroundColor: step !== 4 ? "rgba(232, 232, 232, 1)" : "#83e5de"
+            }}>
+                {" "}
+                <p> Review and Schedule</p>{" "}
+                <span>Review your order and schedule</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div>{getForm()}</div>
