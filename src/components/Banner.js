@@ -1,11 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Carousel } from "react-bootstrap";
 
 export default function Banner(props) {
-
   function gotoServiceCheck() {
     props.history.push("/servicecheck");
   }
+
+  let i = 0;
+  let txt = "Laundry and Dry Cleaning Services";
+  let speed = 70;
+
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("banner_text_run").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  useEffect(() => {
+    typeWriter()
+  }, [])
 
   return (
     <div className="banner" id="home">
@@ -17,12 +32,14 @@ export default function Banner(props) {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Laundry and Dry Cleaning Services</h3>
+            <h3 id="banner_text_run"></h3>
             <p>
               Schedule a pickup from our website. From 8 AM to 10 PM, 7 days a
               week
             </p>
-            <button onClick={() => gotoServiceCheck()}>Schedule a pickup</button>
+            <button onClick={() => gotoServiceCheck()}>
+              Schedule a pickup
+            </button>
           </Carousel.Caption>
         </Carousel.Item>
         {/* <Carousel.Item>

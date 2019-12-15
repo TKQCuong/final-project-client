@@ -203,7 +203,9 @@ html {
   background-size: cover;
   padding-top: 6rem;
 }
-
+.banner p {
+  font-size: 13px;
+}
 .banner-image {
   height: calc(100vh - 56px);
   background-color: lightblue;
@@ -211,14 +213,14 @@ html {
 }
 
 .carousel-caption {
-  bottom: 190px;
+  bottom: 180px;
   color: white !important;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 800px) {
   .carousel-caption {
     /* display: none; */
-    bottom: 100px !important;
+    bottom: 120px !important;
   }
   .carousel-caption h3 {
     font-weight: bold;
