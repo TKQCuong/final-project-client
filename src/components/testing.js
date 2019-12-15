@@ -32,7 +32,6 @@ window.onscroll = function() {
           <Badge
             color="black"
             style={{
-              // backgroundColor: step === 2 ? "#83e5de": "rgba(232, 232, 232, 1)"
               backgroundColor: step === 1 ? "rgba(232, 232, 232, 1)" : "#83e5de"
             }}
             className="schedule_badge"
@@ -64,6 +63,11 @@ window.onscroll = function() {
           >
             Review and Schedule<br></br>
             <small>Review your order and schedule</small>
+            <p>.arrow-steps .step.current:after</p>
           </Badge>
         </div>
       </div>
+
+useEffect(() => {
+  setAuto()
+}, [])

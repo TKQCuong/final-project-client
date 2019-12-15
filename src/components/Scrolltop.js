@@ -11,11 +11,11 @@ function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById("navbar").style.padding = "10px 10px";
     // document.getElementById("logo").style.fontSize = "25px";
-    document.getElementById("footer").style.display = "block";
+    // document.getElementById("footer").style.display = "block";
   } else {
     document.getElementById("navbar").style.padding = "17px 10px";
     // document.getElementById("logo").style.fontSize = "35px";
-    document.getElementById("footer").style.display = "none";
+    // document.getElementById("footer").style.display = "none";
   }
 }
 

@@ -13,7 +13,6 @@ export default function Login(props) {
   };
 
   const postUser = async () => {
-    console.log('Logging in')
     const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/login`, {
       method: "POST",
       headers: {

@@ -212,7 +212,7 @@ html {
 
 .carousel-caption {
   bottom: 190px;
-  color: black !important;
+  color: white !important;
 }
 
 @media screen and (max-width: 580px) {
@@ -226,12 +226,17 @@ html {
   }
   .carousel-caption p {
     letter-spacing: 3px;
+    font-size: 14px;
   }
 }
 .carousel-caption h3 {
   font-weight: bold;
   font-size: 45px;
 }
+
+/* .banner .active {
+  display: ;
+} */
 
 .carousel-caption p {
   letter-spacing: 3px;
@@ -250,6 +255,13 @@ html {
   text-transform: uppercase;
   font-weight: 400;
   margin-top: 25px;
+}
+
+.carousel-control-prev-icon {
+  display: none;
+}
+.carousel-control-next-icon {
+  display: none;
 }
 /* **************************** END BANNER */
 
@@ -306,6 +318,12 @@ html {
 .howitwork-image:hover {
   animation: shake-howitwork-image 0.16s infinite alternate;
 }
+
+@media only screen and (max-width: 800px) {
+  .howitwork-card .container {
+    padding-left: 7rem;
+  }
+}
 /* **************************** END HOWITWORK */
 
 /* **************************** SERVICES */
@@ -341,6 +359,14 @@ html {
 .service_content {
   position: relative;
   z-index: 3;
+}
+@media only screen and (max-width: 800px) {
+  .service_content .container {
+    padding-left: 6rem;
+  }
+  .service_content button {
+    margin-right: 5rem;
+  }
 }
 .service_content .container {
   background-color: none !important;
@@ -494,6 +520,23 @@ html {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.small_banner_schedule {
+  background-image: url("https://s3-ap-southeast-1.amazonaws.com/canifablog/blog/wp-content/uploads/2017/10/24093049/cach-la-ui-quan-tay-nam.jpeg");
+  height: 300px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.small_banner_schedule h1 {
+  padding-top: 11rem;
+  text-align: left;
+  padding-left: 4rem;
+  font-size: 30px;
+    color: #fff;
+    font-weight: 500;
 }
 
 /* .fly-in{
@@ -734,10 +777,9 @@ html {
   padding-top: 6.8rem !important;
 }
 .signup_login_register {
-  padding-top: 5px !important;
-  display: flex;
+  padding-top: 0px !important;
   justify-content: center;
-  line-height: 1px !important;
+  line-height: 0px !important;
 }
 .signup_login_register a {
   display: inline;
@@ -971,9 +1013,49 @@ html {
 }
 .dashboard_nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-top: 3rem;
 }
+
+@media only screen and (max-width: 800px) {
+  .dashboard_nav {
+    padding-left: 6rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .form-edit-profile {
+    margin-right: 6rem;
+  }
+  .arrow-steps {
+    font-size: 5px;
+    display: inline-grid;
+    padding-top: 14rem;
+  }
+  #step1 {
+    width: 261px;
+    margin-left: 2rem;
+  }
+  .schedule_col {
+    float: left;
+    width: 142%;
+    padding: 15px 6px !important;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+    text-align: center;
+    margin: 2px;
+    font-size: 10px !important;
+    padding: 0px;
+    height: 58px !important;
+    background-color: mintcream;
+  }
+  .dateandtime_case1 .row {
+    flex-wrap: nowrap;
+  }
+}
+
 .dashboard_nav_col {
   font-weight: bold;
   border: 1px solid #ddd;
@@ -993,29 +1075,112 @@ html {
   padding-bottom: 10px;
 }
 .dashboard_nav_col .card {
-  background: white;
   cursor: pointer;
-  width: 16rem !important;
+  width: 20rem !important;
 }
 
-.dashboard_nav_col .card:focus {
-  font-weight: bold;
+#icon_my_order {
+  width: 45px;
+  padding-top: 5px;
 }
+
+/* .dashboard_nav_col .card:focus {
+  font-weight: bold;
+} */
 
 .dashboard_h5 {
   font-size: 15px;
   font-weight: 450 !important;
 }
+
+/* .dashboard_h5:focus {
+  font-weight: 600;
+} */
+
 .dashboard_nav_col a {
   text-decoration: none;
   color: #000;
 }
 
+.dashboard_nav_col a:focus {
+  font-weight: 600 !important;
+}
+
+.dashboard_nav_col a:hover {
+  color: black;
+}
+
 .dashboard_nav_col .card-body {
   padding: 10px;
 }
-.dashboard_nav_col .card:focus {
+/* .dashboard_nav_col .card:focus {
   background: #f1f1f1;
+} */
+
+#order_history {
+  display: inline-block;
+  opacity: 1;
+  margin-top: 3rem;
+
+}
+.table-responsive {
+  min-height: 0.01%;
+  overflow-x: auto;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table {
+  width: 120%;
+  max-width: 100%;
+  margin-bottom: 40px;
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.table-responsive th {
+  background: #525252;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.table-responsive tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  font-size: 15px;
+}
+
+.table-responsive thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.tab-content .table.table-bordered td {
+  padding: 12px 15px;
+  font-size: 15px;
+}
+
+.table td .status.cancelled {
+  background: #f44336;
+}
+.table td .status {
+  padding: 3px 0px;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
 }
 
 /* **************************** SERVICES */
@@ -1277,6 +1442,28 @@ hr {
   cursor: pointer;
   padding-top: 5rem;
 }
+
+.schedule_banner {
+  background-attachment: fixed !important;
+  background-size: 100% !important;
+  float: left;
+    width: 100%;
+    padding: 80px 0px;
+    min-height: 200px;
+}
+
+@media (min-width: 1280px) {
+  .schedule_banner .container {
+      width: 1260px;
+}
+}
+.schedule_banner .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+
 
 /* .step-anchor .active .sa_inner:after {
   border-left: 20px solid #4baf50;
@@ -1661,4 +1848,58 @@ a:hover {
 #step4 {
   margin-left: 2rem;
 }
+/* .edit_profile_formgroup{
+  padding-top: 3.5rem;
+  margin: 0px;
+}
+.edit_profile_formgroup .form-group {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+  float: left;
+}
 
+.edit_profile_formgroup .form-control {
+  width: 400px;
+  height: calc(1.4em + .75rem + 2px);
+}
+
+.edit_profile_formgroup .form-label {
+  padding-right: 10px;
+} */
+.form-edit-profile {
+  padding-top: 3rem;
+  padding-left: 18rem;
+}
+.form-edit-profile .form-control {
+  width: 380px;
+  height: 34px;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  font-size: 14px;
+}
+.form-edit-profile button {
+  margin-right: 48rem;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding: 3px 8px;
+  font-size: 14px;
+}
+
+.form-edit-profile .form-label {
+  padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #aaa;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+/* @media (min-width: 992px) */

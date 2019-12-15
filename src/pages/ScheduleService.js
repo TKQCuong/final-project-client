@@ -859,9 +859,20 @@ export default function ScheduleService() {
   console.log({ order });
   return (
     <>
-      <div id="testing badge" style={{paddingTop:"3rem"}}>
+      {/* <section className="schedule_banner">
+    	<div className="container">
+        	<div className="row">
+				<h1> Schedule - Service Details </h1>
+            </div>                  
+        </div>
+    </section> */}
+
+      <div className="small_banner_schedule">
+        <h1>SCHEDULE - SERVICE DETAILS</h1>
+      </div>
+      <div id="testing badge">
         <div className="container1">
-          <div className="wrapper" style={{verticalAlign: "bottom", height:"300px"}}>
+          <div className="wrapper" style={{verticalAlign: "bottom", height:"126px"}}>
             <div className="arrow-steps clearfix">
               <div className="step current" id="step1" style={{
               backgroundColor: step === 1 ? "#83e5de" : "#83e5de"
