@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
 
 export default function Login(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   //   Set up Log in, Send to Flask
   const [input, setInput] = useState({});
   const handleOnChange = e => {
@@ -24,15 +28,14 @@ export default function Login(props) {
     const data = await resp.json();
 
     if (data.false === "wrong pass") setVisible(true);
-    if (data.false === "not email") setShow(true);
+    if (data.false === "not email") setAlert(true);
     if (data.email) {
-      console.log('sksksk')
+      console.log("sksksk");
       props.setCurrentUser(data);
-      localStorage.setItem('token', data.token)
+      localStorage.setItem("token", data.token);
       props.history.push("/");
     }
-    if (props.currentUser) 
-      props.history.push("/");
+    if (props.currentUser) props.history.push("/");
   };
 
   const handleSubmit = e => {
@@ -47,8 +50,8 @@ export default function Login(props) {
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
   // Alert - Account not existed
-  const [show, setShow] = useState(false);
-  const onClose = () => setShow(false);
+  const [alert, setAlert] = useState(false);
+  const onClose = () => setAlert(false);
 
   return (
     <div>
@@ -73,7 +76,7 @@ export default function Login(props) {
         </Alert>
         <Alert
           color="warning"
-          isOpen={show}
+          isOpen={alert}
           toggle={onClose}
           className="alert_link"
         >
@@ -116,10 +119,38 @@ export default function Login(props) {
           <a href="" onClick={() => gotoServiceCheck()}>
             Sign up here
           </a>
+          {/* <br></br>
+          <a href="#" onClick={handleShow}>
+            Forgot Password?
+          </a> */}
         </div>
       </div>
-      {/* <div className="login_footer">
-        <Footer {...props} />
+      {/* <div className="forgot-password">
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton className="header_forgot">
+            <Modal.Title>Forgot Your Password?</Modal.Title>
+            <Modal.Title>We will email you to reset your password.</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+              <form>
+                <div class="input-container-forgot">
+                  <label><i class="far fa-envelope"></i></label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                  />
+                </div>
+              </form>
+              <p class="popup-fail-message">
+              </p>
+          </Modal.Body>
+          <Modal.Footer className="button-forgot">
+            <Button variant="primary" onClick={handleClose}>
+              Send Instructions
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div> */}
     </div>
   );

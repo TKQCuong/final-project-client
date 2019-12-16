@@ -842,7 +842,29 @@ html {
   font-family: objektiv-mk3;
   font-weight: 300;
   font-style: normal;
-  padding-top: 1.5rem;
+  padding-top: 0.7rem;
+}
+
+.header_forgot {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.input-container-forgot {
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+}
+.input-container-forgot input {
+  width: 17rem;
+}
+.button-forgot button {
+  margin-right: 10rem;
+}
+.fa-envelope {
+  font-size: 30px;
+  padding-right: 1rem;
 }
 .signup_login a {
   /* color: #83e5de; */

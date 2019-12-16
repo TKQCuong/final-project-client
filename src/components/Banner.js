@@ -19,7 +19,7 @@ export default function Banner(props) {
   }
 
   useEffect(() => {
-    setTimeout(() => {typeWriter()}, 1500)
+    setTimeout(() => {typeWriter()}, 500)
   }, [])
 
   return (
