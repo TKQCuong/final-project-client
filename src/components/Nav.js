@@ -27,9 +27,9 @@ export default function Navibar(props) {
     props.history.push("/dashboard")
   }
 
-  function gotoService() {
-    props.history.push("/services")
-  }
+  // function gotoService() {
+  //   props.history.push("/services")
+  // }
 
   // Dropdown menu
   const [dropdownOpen, setDropdownOpen] = useState(false);
