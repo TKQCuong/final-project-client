@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Alert } from 'reactstrap';
+import { useHistory, Link } from "react-router-dom";
 
 export default function Service() {
+  let history = useHistory()
   return (
     <div className="services-section" id="services_scroll">
       <div className="service_background"></div>
@@ -44,7 +46,7 @@ export default function Service() {
               </div>
             </Col>
           </Row>
-          <button className="service_button">Learn more about services</button>
+          <button className="service_button" onClick={() => history.push("/services")}>Learn more about services</button>
         </Container>
       </div>
     </div>
