@@ -117,9 +117,6 @@ export default function Register(props) {
               required
             />
           </Form.Group>
-          <Form.Group>
-            <Form.Check type="checkbox" label="Remember Me" />
-          </Form.Group>
           <Button variant="primary" type="submit" id="button_login">
             Register
           </Button>
