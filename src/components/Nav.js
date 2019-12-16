@@ -57,7 +57,7 @@ export default function Navibar(props) {
             <Nav.Link href="#howitworks_scroll" className="left-nav-a">
               HOW IT WORKS
             </Nav.Link>
-            <Nav.Link href="#" className="left-nav-a" onClick={() => gotoService()}>
+            <Nav.Link href="#" className="left-nav-a">
               SERVICES
             </Nav.Link>
 
