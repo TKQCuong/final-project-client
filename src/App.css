@@ -323,7 +323,7 @@ html {
 
 @media only screen and (max-width: 800px) {
   .howitwork-card .container {
-    padding-left: 5rem;
+    padding-left: 4rem;
   }
 }
 /* **************************** END HOWITWORK */
@@ -364,7 +364,7 @@ html {
 }
 @media only screen and (max-width: 800px) {
   .service_content .container {
-    padding-left: 5rem;
+    padding-left: 3rem;
   }
   .service_content button {
     margin-right: 5rem;
