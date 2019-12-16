@@ -37,6 +37,8 @@ export default function Register(props) {
   function gotoLogin() {
     props.history.push("/login");
   }
+  
+  if (props.currentUser) props.history.push("/");
 
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);

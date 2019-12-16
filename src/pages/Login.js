@@ -4,6 +4,7 @@ import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
 import Footer from "../components/Footer";
 import Home from "../pages/Home";
+import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
   const [show, setShow] = useState(false);
@@ -45,7 +46,7 @@ export default function Login(props) {
   function gotoServiceCheck() {
     props.history.push("/servicecheck");
   }
-
+  if (props.currentUser) props.history.push("/");
   // Alert - Wrong password
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
