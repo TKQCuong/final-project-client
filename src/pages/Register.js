@@ -19,8 +19,8 @@ export default function Register(props) {
       body: JSON.stringify({ input })
     });
     const data = await resp.json();
-    if (data.false === 'false') setVisible(true);
-    if (data.false === 'existed mobile') setMobile(true)
+    if (data.false === "false") setVisible(true);
+    if (data.false === "existed mobile") setMobile(true);
     if (data.email) {
       props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
@@ -122,10 +122,10 @@ export default function Register(props) {
           </Button>
         </Form>
         <div className="signup_login signup_login_register">
-          <p>Already have an account?</p>
-          <a href="" onClick={() => gotoLogin()}>
-            Sign in here
-          </a>
+            <p>Already have an account?</p>
+            <a href="" onClick={() => gotoLogin()}>
+              Sign in here
+            </a>
         </div>
       </div>
     </div>

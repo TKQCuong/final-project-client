@@ -16,6 +16,7 @@ import Scrolltop from './components/Scrolltop';
 import { Alert } from 'react-bootstrap';
 
 function App(props) {
+  const [loaded, setLoaded] = useState(false);
   const [currentUser, setCurrentUser]= useState(null)
 
   const getCombackUserData = async () => {

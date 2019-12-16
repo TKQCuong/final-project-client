@@ -39,16 +39,16 @@ export default function Footer(props) {
                 <h3>Quick links</h3>
                 <ul>
                   <li>
-                    <a href="services.php">Services</a>
+                    <a href="#home">Services</a>
                   </li>
                   <li>
-                    <a href="contact-us.php">Contact us</a>
+                    <a href="#home">Contact us</a>
                   </li>
                   <li>
-                    <a href="terms.php">Terms &amp; Conditions</a>
+                    <a href="#home">Terms &amp; Conditions</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0);">Laundry</a>
+                    <a href="#home">Laundry</a>
                   </li>
                 </ul>
               </div>
@@ -58,22 +58,22 @@ export default function Footer(props) {
                 <h3>Our Services</h3>
                 <ul>
                   <li>
-                    <a href="services.php">Laundry</a>
+                    <a href="#home">Laundry</a>
                   </li>
                   <li>
-                    <a href="services.php">Wash &amp; Fold</a>
+                    <a href="#home">Wash &amp; Fold</a>
                   </li>
                   <li>
-                    <a href="services.php">Wash &amp; Iron</a>
+                    <a href="#home">Wash &amp; Iron</a>
                   </li>
                   <li>
-                    <a href="services.php">Premium Wash</a>
+                    <a href="#home">Premium Wash</a>
                   </li>
                   <li>
-                    <a href="services.php">Dry Cleaning</a>
+                    <a href="#home">Dry Cleaning</a>
                   </li>
                   <li>
-                    <a href="services.php">Stain Removal </a>
+                    <a href="#home">Stain Removal </a>
                   </li>
                 </ul>
               </div>
@@ -87,10 +87,10 @@ export default function Footer(props) {
                 <p>Office : 12 Ton Dan Street, District 4, HCMC, Vietnam.</p>
                 <p>
                   <img src="" />
-                  &nbsp; <a href="mailto:info@getwash.in"> info@laundryover.in</a>
+                  &nbsp; <a href="mailto:trankyquoccuong@gmail.com"> info@laundryover.in</a>
                 </p>
                 <p>
-                  <img src="" /> &nbsp; <a href="#">098 432 65 69</a>
+                  <img src="" /> &nbsp; <a href="#">096 808 810</a>
                 </p>
 
               </div>
@@ -110,7 +110,7 @@ export default function Footer(props) {
                   <p>
                     Created by:{" "}
                     <a
-                      href="www.scorpiotechnologies.com"
+                      href="#home"
                       target="_blank"
                       title=""
                       style={{ color: "#dddddd" }}

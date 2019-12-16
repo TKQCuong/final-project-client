@@ -3,7 +3,16 @@ import { Badge } from "reactstrap";
 import { Container, Col, Row, Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
-export default function ScheduleService() {
+export default function ScheduleService(props) {
+  const [order, setOrder] = useState({});
+  const [step, setStep] = useState(1);
+  const [time, setTime] = useState(0);
+
+  // Address Modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   // Create Order
   let history = useHistory();
   const createOrder = async props => {
@@ -24,6 +33,8 @@ export default function ScheduleService() {
     if (data.success) {
       history.push("/dashboard");
     }
+    
+ 
   };
 
   const handleSubmit = e => {
@@ -31,20 +42,13 @@ export default function ScheduleService() {
     createOrder();
   };
 
-  const [order, setOrder] = useState({});
-  const [step, setStep] = useState(1);
-  const [time, setTime] = useState(0);
-
-  // Address Modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  if (!props.currentUser) history.push("/login");
 
   // Focusing step1 -Service
-  function focusMethod() {
-    // document.getElementById("myTextField").focus();
-    if (order.servicetype != null) setOrder({});
-  }
+  // function focusMethod() {
+  //   // document.getElementById("myTextField").focus();
+  //   if (order.servicetype != null) setOrder({});
+  // }
 
   // Date and Time
   const getTime = () => {
@@ -345,6 +349,7 @@ export default function ScheduleService() {
               style={{ display: "flex" }}
             >
               <div className="service_row">
+                {/* 1st Row */}
                 <div className="row" id="schedule_row">
                   <div className="focusing" tabindex="1">
                     <label className="serv_was_box" for="serv1" id="step1_box">
@@ -374,6 +379,7 @@ export default function ScheduleService() {
                       </div>
                     </label>
                   </div>
+
                   <div className="focusing" tabindex="1">
                     <label className="serv_was_box" for="serv1">
                       <div
@@ -403,6 +409,7 @@ export default function ScheduleService() {
                     </label>
                   </div>
                 </div>
+                  {/* 2nd Row */}
                 <div className="row" id="schedule_row">
                   <div className="focusing" tabindex="1">
                     <label className="serv_was_box" for="serv1" id="serv_box3">
@@ -462,14 +469,14 @@ export default function ScheduleService() {
                   </div>
                 </div>
               </div>
-              <div
+              {/* <div
                 style={{
                   backgroundColor: "white",
                   width: "500px",
                   marginLeft: "2rem"
                 }}
                 onClick={() => focusMethod()}
-              ></div>
+              ></div> */}
             </div>
 
             <div className="schedule_button">
@@ -488,8 +495,6 @@ export default function ScheduleService() {
                   Next
                 </button>
               )}
-
-              {/* <button id="service_next_button" onClick={() => {if (order.servicetype != null) setStep(2)}}>Next</button> */}
             </div>
           </div>
         );
@@ -641,13 +646,6 @@ export default function ScheduleService() {
                   Next
                 </button>
               )}
-              {/* <button
-                onClick={() => {
-                  if (order.dateandtime != null) setStep(3);
-                }}
-              >
-                Next
-              </button> */}
             </div>
           </div>
         );
@@ -816,13 +814,17 @@ export default function ScheduleService() {
 
               <div className="schedule_date_detail">
                 <div className="date_detail_pickupdate">
-                  Pickup Date
-                  <p>{order.dateandtime}</p>
+                  <div>
+                    <p className="date_small_p">Pickup Date</p>
+                    <p>{order.dateandtime}</p>
+                  </div>
                 </div>
 
                 <div className="date_detail_pickuptime">
-                  Pickup Time
-                  <p></p>
+                  <div>
+                    <p className="date_small_p">Pickup Time</p>
+                    <p>10:00 AM To 01:00 PM</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -836,9 +838,15 @@ export default function ScheduleService() {
               <button id="previous_button" onClick={() => setStep(3)}>
                 Previous
               </button>
-              <button type="submit" onClick={e => handleSubmit(e)}>
+              {order.servicetype==null || order.dateandtime==null || order.address==null ?
+              <button id="previous_button"
+              style={{ cursor: "not-allowed" }}
+              disabled>
+              Schedule Pickup
+            </button> : <button type="submit" onClick={e => handleSubmit(e)}>
                 Schedule Pickup
               </button>
+            }
             </div>
           </div>
         );

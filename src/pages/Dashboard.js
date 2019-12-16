@@ -78,9 +78,7 @@ export default function Dashboard(props) {
       if(resp.ok) getOrder()
     }
 
-    function deleteOrder(id) {
-
-    }
+    if (!props.currentUser) history.push("/login");
 
   const getTracking = props => {
     // eslint-disable-next-line default-case
@@ -93,7 +91,7 @@ export default function Dashboard(props) {
                 return (
                   <>
                   {el.status !== "Cancel" ?<>
-                    <h1># {el.id} - Order Status</h1>
+                    <h1><b>Order #&nbsp; {el.id}</b> - <span style={{color: 'green'}}>{el.status}</span></h1>
                     <Container>
                       <Row>
                         <Col>Schedule Date:</Col>
@@ -326,9 +324,9 @@ export default function Dashboard(props) {
                   className="dashboard_h5"
                 >
                   <img
-                    src="https://p7.hiclipart.com/preview/785/236/949/shopping-cart-icon-flame-shopping-cart-icon.jpg"
-                    alt=""
-                    id="icon_my_order"
+                    src="https://www.odoo.com/apps/icon_image?module_id=57331"
+                    alt="Order History"
+                    id="icon_order_history"
                   />
                   <br></br>Order History
                 </a>

@@ -782,9 +782,11 @@ html {
   padding-top: 0px !important;
   justify-content: center;
   line-height: 0px !important;
+  display: flex;
 }
 .signup_login_register a {
   display: inline;
+  line-height: 0px;
 }
 .form-control-register {
   width: 170px !important;
@@ -862,14 +864,11 @@ html {
 .button-forgot button {
   margin-right: 10rem;
 }
-.fa-envelope {
-  font-size: 30px;
-  padding-right: 1rem;
-}
+/* */
 .signup_login a {
   /* color: #83e5de; */
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgba(0, 0, 0, 0.3);
@@ -878,8 +877,8 @@ html {
   font-weight: 300;
   font-style: normal;
   letter-spacing: 0.05em;
-  line-height: 1.7em;
   text-transform: none;
+  margin-left: 0.5rem;
 }
 #logo_login {
   padding-top: 9rem;
@@ -1113,6 +1112,7 @@ html {
   width: 45px;
   padding-top: 5px;
 }
+
 
 /* .dashboard_nav_col .card:focus {
   font-weight: bold;
@@ -1584,27 +1584,34 @@ hr {
 
 .date_detail_pickupdate {
   padding-left: 2rem;
-  border: 2px solid darkgray;
+  border: 1px solid gray;
   border-radius: 11px;
   padding: 40px;
   padding-left: 156px;
   font-weight: 600;
-  font-weight: 600;
-  padding: 34px;
+  padding: 35px;
   font-size: 13px;
+  height: 90px;
+  padding-top: 21px;
+    line-height: 10px;
 }
 
 .date_detail_pickuptime {
   margin-left: 4rem;
-  border: 2px solid darkgray;
-  border-radius: 11px;
-  font-weight: 600;
-  font-size: 13px;
-  padding-right: 129px;
-  padding: 50px;
-  padding-left: 65px;
+    border: 1px solid gray;
+    border-radius: 11px;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 42px;
+    padding-left: 41px;
+    height: 90px;
+    width: 13.5rem;
+    padding-top: 22px;
+    line-height: 10px;
 }
-
+.date_small_p {
+  font-size: 12px;
+}
 .address_result {
   padding-top: 2rem;
 }
@@ -1617,9 +1624,10 @@ hr {
 .address_result p {
   text-align: left;
   padding-left: 4rem;
+  font-size: 15px;
 }
 .schedule_service_detail {
-  border: 2px solid darkgrey;
+  border: 1px solid gray;
   border-radius: 11px;
   padding: 14px;
   padding-left: 17px;
