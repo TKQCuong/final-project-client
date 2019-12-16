@@ -54,10 +54,10 @@ export default function Navibar(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav className="left-nav" id="left-nav">
-            <Nav.Link href="#howitworks_scroll" className="left-nav-a">
+            <Nav.Link href="#howitworks_scroll" className="left-nav-a" onClick={()=>history.push("/")}>
               HOW IT WORKS
             </Nav.Link>
-            <Nav.Link href="#" className="left-nav-a">
+            <Nav.Link href="#" className="left-nav-a" onClick={()=>history.push("/services")}>
               SERVICES
             </Nav.Link>
 

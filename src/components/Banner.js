@@ -8,7 +8,7 @@ export default function Banner(props) {
 
   let i = 0;
   let txt = "Laundry and Dry Cleaning Services";
-  let speed = 40;
+  let speed = 30;
 
   function typeWriter() {
     if (i < txt.length) {

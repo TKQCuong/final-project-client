@@ -33,22 +33,13 @@ export default function ScheduleService(props) {
     if (data.success) {
       history.push("/dashboard");
     }
-    
- 
   };
-
   const handleSubmit = e => {
     e.preventDefault();
     createOrder();
   };
 
   if (!props.currentUser) history.push("/login");
-
-  // Focusing step1 -Service
-  // function focusMethod() {
-  //   // document.getElementById("myTextField").focus();
-  //   if (order.servicetype != null) setOrder({});
-  // }
 
   // Date and Time
   const getTime = () => {
@@ -366,6 +357,7 @@ export default function ScheduleService(props) {
                           <input
                             name="servicetype"
                             style={{ display: "none" }}
+                            type="checkbox"
                           ></input>
                           <img
                             className="step1_icon"
@@ -395,6 +387,7 @@ export default function ScheduleService(props) {
                           <input
                             name="servicetype"
                             style={{ display: "none" }}
+                            type="checkbox"
                           ></input>
                           <img
                             className="step1_icon"
@@ -426,6 +419,7 @@ export default function ScheduleService(props) {
                           <input
                             name="servicetype"
                             style={{ display: "none" }}
+                            type="checkbox"
                           ></input>
                           <img
                             className="step1_icon"
@@ -454,6 +448,7 @@ export default function ScheduleService(props) {
                           <input
                             name="servicetype"
                             style={{ display: "none" }}
+                            type="checkbox"
                           ></input>
                           <img
                             className="step1_icon"
