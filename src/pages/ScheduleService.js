@@ -764,15 +764,6 @@ export default function ScheduleService() {
                                 id=""
                               />
                             </div>
-                            <div class="address-form-group">
-                              <label for="">Floor/ Unit No :</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                name=""
-                                id=""
-                              />
-                            </div>
                           </div>
                         </div>
                       </Modal.Body>
@@ -859,14 +850,6 @@ export default function ScheduleService() {
   console.log({ order });
   return (
     <>
-      {/* <section className="schedule_banner">
-    	<div className="container">
-        	<div className="row">
-				<h1> Schedule - Service Details </h1>
-            </div>                  
-        </div>
-    </section> */}
-
       <div className="small_banner_schedule">
         <h1>SCHEDULE - SERVICE DETAILS</h1>
       </div>

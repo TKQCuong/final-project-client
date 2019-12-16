@@ -222,7 +222,7 @@ html {
     /* display: none; */
     bottom: 120px !important;
   }
-  .carousel-caption h3 {
+  .carousel-caption span {
     font-weight: bold;
     font-size: 29px !important;
   }
@@ -231,7 +231,7 @@ html {
     font-size: 14px;
   }
 }
-.carousel-caption h3 {
+.carousel-caption span {
   font-weight: bold;
   font-size: 45px;
 }
@@ -1131,6 +1131,8 @@ html {
   margin: 0px;
   padding: 0px;
   width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .table-bordered {
@@ -1138,7 +1140,7 @@ html {
 }
 
 .table {
-  width: 120%;
+  width: 100%;
   max-width: 100%;
   margin-bottom: 40px;
   background-color: transparent;
@@ -1154,7 +1156,7 @@ html {
   font-weight: 600;
   color: #fff;
   text-align: center;
-  padding-left: 20px;
+  padding-left: 38px;
   padding-right: 20px;
 }
 
@@ -1905,3 +1907,53 @@ a:hover {
     font-weight: 500;
 }
 /* @media (min-width: 992px) */
+
+.current_order {
+  text-align: left;
+  padding-top: 3rem;
+}
+
+.current_order h1 {
+  padding-left: 6rem;
+  font-size: 18px;
+}
+
+.current_order .col {
+  padding-left: 2.5rem;
+  max-width: 20%;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.cancel_button {
+  border: none;
+  color: white;
+  padding: 7px 52px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #f44336;
+  border-radius: 5px;
+  margin-left: 6.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.schedule-status {
+  background: green;
+  padding: 3px 0px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.cancel-status {
+  background: #F44336;
+  padding: 3px 0px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+}

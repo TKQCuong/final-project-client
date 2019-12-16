@@ -27,7 +27,7 @@ export default function Footer(props) {
                   We are a team of passionate people who believe in the role
                   technology can play to make our everyday life easier. We are
                   young people mostly from product and operations background. At
-                  Getwash we want to redefine how people use local services and
+                  Laundryover we want to redefine how people use local services and
                   use technology to provide them best experience with our
                   promise of Convenience, Quality and Price.
                 </p>
@@ -42,19 +42,10 @@ export default function Footer(props) {
                     <a href="services.php">Services</a>
                   </li>
                   <li>
-                    <a href="faq.php">FAQ</a>
-                  </li>
-                  <li>
                     <a href="contact-us.php">Contact us</a>
                   </li>
                   <li>
                     <a href="terms.php">Terms &amp; Conditions</a>
-                  </li>
-                  <li>
-                    <a href="privacy.php">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="refund.php">Refund Policy</a>
                   </li>
                   <li>
                     <a href="javascript:void(0);">Laundry</a>
@@ -91,34 +82,17 @@ export default function Footer(props) {
               <div className="footer_abt2">
                 <h3>Contact Info</h3>
                 <p style={{ fontSize: "20px", textAlign: "left" }}>
-                  Wingsser Solutions Pvt Ltd
+                  Laundryover Solutions Pvt Ltd
                 </p>
-                <p>Office : No.23,Duraiswamy Road,T.Nagar,Chennai-600017.</p>
+                <p>Office : 12 Ton Dan Street, District 4, HCMC, Vietnam.</p>
                 <p>
                   <img src="" />
-                  &nbsp; <a href="mailto:info@getwash.in"> info@getwash.in</a>
+                  &nbsp; <a href="mailto:info@getwash.in"> info@laundryover.in</a>
                 </p>
                 <p>
-                  <img src="" /> &nbsp; <a href="#">044 48660006 / 28141178</a>
+                  <img src="" /> &nbsp; <a href="#">098 432 65 69</a>
                 </p>
 
-                {/* <div className="s_icon">
-                  <a href="#" target="_blank">
-                    <img alt="" src="" />
-                  </a>
-                  <a href="#" target="_blank">
-                    <img alt="" src="" />
-                  </a>
-                  <a href="#" target="_blank">
-                    <img alt="" src="" />
-                  </a>
-                  <a href="#" target="_blank">
-                    <img alt="n" src="" />
-                  </a>
-                  <a href="#" target="_blank">
-                    <img alt="" src="" />
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>
@@ -128,7 +102,7 @@ export default function Footer(props) {
             <div className="row">
               <div className="col-md-8">
                 <div className="pull-left">
-                  <p>Copyright © getwash.com 2019. All rights reserved.</p>
+                  <p>Copyright © laundryover.com 2019. All rights reserved.</p>
                 </div>
               </div>
               <div className="col-md-4">
@@ -141,7 +115,7 @@ export default function Footer(props) {
                       title=""
                       style={{ color: "#dddddd" }}
                     >
-                      www.scorpiotechnologies.com
+                      www.laundryover.com
                     </a>{" "}
                   </p>
                 </div>

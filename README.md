@@ -1,3 +1,25 @@
+**** Before demo
+1. Add trước District (10,1,3,7,4)
+2. Add trước Service (4 service)
+
+**** Need to finish
+-> Render Order in Dashboard
+-> Send mail forgot password
+2. User can Cancel Order
+3. Create hard-core order history
+4. Edit all content to Laundryover
+5. User can choose 2 services at time
+6. Read about services
+7. Put all image into the folder
+8. Create PRICE page
+7. Edit link in Footer
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

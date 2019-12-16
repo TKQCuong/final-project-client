@@ -19,7 +19,7 @@ export default function Banner(props) {
   }
 
   useEffect(() => {
-    typeWriter()
+    setTimeout(() => {typeWriter()}, 1500)
   }, [])
 
   return (
@@ -32,7 +32,8 @@ export default function Banner(props) {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3 id="banner_text_run"></h3>
+            <span id="banner_text_run"></span>
+            {/* <h3>Laundry and Dry Cleaning Services</h3> */}
             <p>
               Schedule a pickup from our website. From 8 AM to 10 PM, 7 days a
               week

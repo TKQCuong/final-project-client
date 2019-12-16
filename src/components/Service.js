@@ -38,8 +38,8 @@ export default function Service() {
                 <h3>Commercial Laundry</h3>
                 <p>
                   Interested in learning more about Wash Fairies’s competitive
-                  commercial laundry pricing? Email hello@washfairies.com or
-                  call (224) 302-6772.
+                  commercial laundry pricing? Email hello@laundry.com or
+                  call (098) 432 65 69.
                 </p>
               </div>
             </Col>

@@ -19,8 +19,8 @@ export default function Register(props) {
       body: JSON.stringify({ input })
     });
     const data = await resp.json();
-    if (data.false) setVisible(true);
-
+    if (data.false === 'false') setVisible(true);
+    if (data.false === 'existed mobile') setMobile(true)
     if (data.email) {
       props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
@@ -40,6 +40,9 @@ export default function Register(props) {
 
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
+
+  const [mobile, setMobile] = useState(false);
+  const onMobile = () => setVisible(false);
 
   return (
     <div>
@@ -62,6 +65,14 @@ export default function Register(props) {
           <a href="" onClick={() => gotoLogin()}>
             here
           </a>
+        </Alert>
+        <Alert
+          color="warning"
+          isOpen={mobile}
+          toggle={onMobile}
+          className="alert_link"
+        >
+          The Mobile number that you've entered is existed !{" "}
         </Alert>
         {/* <h1>Sign In</h1> */}
         <Form onChange={e => handleOnChange(e)} onSubmit={e => handleSubmit(e)}>
@@ -96,16 +107,6 @@ export default function Register(props) {
               required
             />
           </Form.Group>
-          {/* <Form.Group>
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter address"
-              name="address"
-              id="form-control-login"
-              required
-            />
-          </Form.Group> */}
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
