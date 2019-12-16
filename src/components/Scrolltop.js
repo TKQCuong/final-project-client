@@ -25,7 +25,7 @@ function topFunction() {
 }
     return (
         <div>
-            <button onClick={() => topFunction()} id="myBtn" title="Go to top">Top</button>
+            <button onClick={() => topFunction()} id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
         </div>
     )
 }
