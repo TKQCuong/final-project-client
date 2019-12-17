@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import { useHistory } from "react-router-dom";
 
 export default function Login(props) {
+  const history = useHistory()
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -36,7 +37,7 @@ export default function Login(props) {
       localStorage.setItem("token", data.token);
       props.history.push("/");
     }
-    if (props.currentUser) props.history.push("/");
+    if (props.currentUser) history.goBack();
   };
 
   const handleSubmit = e => {

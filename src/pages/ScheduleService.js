@@ -39,7 +39,7 @@ export default function ScheduleService(props) {
     createOrder();
   };
 
-  if (!props.currentUser) history.push("/login");
+  if (!props.currentUser) history.goBack();
 
   // Date and Time
   const getTime = () => {

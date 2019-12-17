@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 export default function Register(props) {
+  const history = useHistory()
   const [input, setInput] = useState({});
   const handleOnChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -38,7 +40,7 @@ export default function Register(props) {
     props.history.push("/login");
   }
   
-  if (props.currentUser) props.history.push("/");
+  if (props.currentUser) history.goBack()
 
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
