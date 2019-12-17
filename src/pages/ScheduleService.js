@@ -28,9 +28,11 @@ export default function ScheduleService(props) {
         body: JSON.stringify({ order })
       }
     );
+    console.log(resp)
     const data = await resp.json();
-
+      console.log(data)
     if (data.success) {
+      console.log("KHOA")
       history.push("/dashboard");
     }
   };
@@ -39,7 +41,6 @@ export default function ScheduleService(props) {
     createOrder();
   };
 
-  if (!props.currentUser) history.goBack();
 
   // Date and Time
   const getTime = () => {
