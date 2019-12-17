@@ -44,7 +44,7 @@ console.log(currentUser,'current user')
       <Switch>
         <Route exact path="/" render={() => <Home {...props} />} />
         <Route path="/login" render={() => <Login {...props} setCurrentUser={setCurrentUser} currentUser={currentUser}/> }/>
-        <Route path="/register" render={() => <Register {...props} setCurrentUser={setCurrentUser}/>} />
+        <Route path="/register" render={() => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route path="/servicecheck" render={() => <Servicecheck {...props} currentUser={currentUser}/>} />
         <Route path="/dashboard" render={() => <Dashboard {...props} setCurrentUser={setCurrentUser} currentUser={currentUser}/>}/>
         <Route path="/schedule-service" render={() => <ScheduleService {...props} currentUser={currentUser}/>} />
