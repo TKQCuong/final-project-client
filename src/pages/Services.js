@@ -30,7 +30,7 @@ export default function Service() {
                           <tr>
                             <td class="name_td">Weight</td>
                             <td>
-                              <strong>$ 0.85/Kg</strong>
+                              <strong>$ 0.75/Kg</strong>
                             </td>
                           </tr>
                         </tbody>
@@ -65,7 +65,7 @@ export default function Service() {
                           <tr>
                             <td class="name_td">Weight</td>
                             <td>
-                              <strong>$ 1.10/Kg</strong>
+                              <strong>$ 0.9/Kg</strong>
                             </td>
                           </tr>
                         </tbody>
@@ -100,7 +100,7 @@ export default function Service() {
                           <tr>
                             <td class="name_td">Weight</td>
                             <td>
-                              <strong>$ 1.25/Kg</strong>
+                              <strong>$ 1.05/Kg</strong>
                             </td>
                           </tr>
                         </tbody>
@@ -135,7 +135,7 @@ export default function Service() {
                           <tr>
                             <td class="name_td">Weight</td>
                             <td>
-                              <strong>$ 1.45/Kg</strong>
+                              <strong>$ 1.25/Kg</strong>
                             </td>
                           </tr>
                         </tbody>
