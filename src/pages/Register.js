@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 export default function Register(props) {
   let history = useHistory();
-  if (props.currentUser) history.goBack()
+  // if (props.currentUser) history.goBack()
   const [input, setInput] = useState({});
   const handleOnChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -27,9 +27,8 @@ export default function Register(props) {
     if (data.email) {
       props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
-      props.history.push("/schedule-service");
+      history.push("/schedule-service");
     }
-    // console.log("data", data);
   };
 
   const handleSubmit = e => {
@@ -41,8 +40,6 @@ export default function Register(props) {
     props.history.push("/login");
   }
   
-  
-
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
 

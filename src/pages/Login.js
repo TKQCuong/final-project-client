@@ -37,7 +37,7 @@ export default function Login(props) {
       localStorage.setItem("token", data.token);
       props.history.push("/");
     }
-    if (props.currentUser) history.goBack();
+    // if (props.currentUser) history.goBack();
   };
 
   const handleSubmit = e => {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Badge } from "reactstrap";
 import { Container, Col, Row, Modal, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -32,7 +31,6 @@ export default function ScheduleService(props) {
     const data = await resp.json();
       console.log(data)
     if (data.success) {
-      console.log("KHOA")
       history.push("/dashboard");
     }
   };

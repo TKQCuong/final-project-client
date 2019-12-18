@@ -4,8 +4,11 @@ import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
 import { Tooltip } from "reactstrap";
 import Footer from "../components/Footer";
+import { useHistory } from "react-router-dom";
 
 export default function Servicecheck(props) {
+  
+  let history = useHistory();
   //   function changeBackground(color) {
   //     document.getElementById("navbar").style.backgroundColor = color;
   //   }
@@ -49,14 +52,15 @@ export default function Servicecheck(props) {
 
     // If the address is Invalid, pop up a Modal
     if (data.success) {
-      // if (props.currentUser) props.history.push("/schedule-service");
-      if(!props.currentUser) props.history.push("/register");
-    
+        history.push("/register");
+      }
+      if (data.false) setShow(true);
     }
-
-    if (data.false) setShow(true);
-  };
-
+    
+  if (props.currentUser) {
+    history.push("/schedule-service");
+  }
+  
   const handleSubmit = e => {
     e.preventDefault();
     postCheckService();

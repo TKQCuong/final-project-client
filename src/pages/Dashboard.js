@@ -42,7 +42,7 @@ export default function Dashboard(props) {
     updateUser();
   };
   
-  if (!props.currentUser) history.goBack()
+  // if (!props.currentUser) history.goBack()
 
   const [data, setData] = useState([]);
   // RENDER ORDER IN DASHBOARD
