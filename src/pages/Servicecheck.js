@@ -49,7 +49,7 @@ export default function Servicecheck(props) {
 
     // If the address is Invalid, pop up a Modal
     if (data.success) {
-      if (props.currentUser) props.history.push("/schedule-service");
+      // if (props.currentUser) props.history.push("/schedule-service");
       if(!props.currentUser) props.history.push("/register");
     
     }
