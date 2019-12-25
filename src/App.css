@@ -1216,6 +1216,7 @@ html {
   background-color: transparent;
   border-spacing: 0;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .table-responsive th {
@@ -1238,8 +1239,11 @@ html {
   font-weight: 600;
   color: #fff;
   text-align: center;
-  padding-left: 38px;
-  padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 22px;
+  overflow: hidden;
+    width: 265px;
+    padding-bottom: 18px;
 }
 
 .table-responsive th:first-child {
@@ -1250,8 +1254,8 @@ html {
   font-weight: 600;
   color: #fff;
   text-align: center;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
 } 
 
 .table-responsive tr {
