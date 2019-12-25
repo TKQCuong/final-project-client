@@ -1230,6 +1230,18 @@ html {
   padding-right: 20px;
 }
 
+.table-responsive th+th {
+  background: #525252;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding-left: 38px;
+  padding-right: 20px;
+}
+
 .table-responsive th:first-child {
   background: #525252;
   color: white;
