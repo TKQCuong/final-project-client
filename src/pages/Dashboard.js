@@ -15,6 +15,7 @@ export default function Dashboard(props) {
   const [tracking, setTracking] = useState(1);
   const [update, setUpdate] = useState({});
   const [cancel, setCancel] = useState({});
+  const [data, setData] = useState([]);
 
   const updateUser = async () => {
     const resp = await fetch(
@@ -41,10 +42,7 @@ export default function Dashboard(props) {
     e.preventDefault();
     updateUser();
   };
-  
-  // if (!props.currentUser) history.goBack()
 
-  const [data, setData] = useState([]);
   // RENDER ORDER IN DASHBOARD
   const getOrder = async () => {
     const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/getData`, {
@@ -64,7 +62,39 @@ export default function Dashboard(props) {
     getOrder();
   }, []);
 
-  const cancelOrder = async (id) => {
+  const filterCancel = async () => {
+    const resp = await fetch(
+      `${process.env.REACT_APP_URL_DATABASE}/getCancel`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    const data = await resp.json();
+    setData(data);
+  };
+
+  const filterSchedule = async () => {
+    const resp = await fetch(
+      `${process.env.REACT_APP_URL_DATABASE}/getSchedule`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    const data = await resp.json();
+    setData(data);
+  };
+
+  const cancelOrder = async id => {
     const resp = await fetch(
       `${process.env.REACT_APP_URL_DATABASE}/cancelOrder/${id}`,
       {
@@ -74,13 +104,13 @@ export default function Dashboard(props) {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ "cancel": "Cancel" })
+        body: JSON.stringify({ cancel: "Cancel" })
       }
     );
-      if(resp.ok) getOrder()
-    }
+    if (resp.ok) getOrder();
+  };
 
-    if (!props.currentUser) history.push("/login");
+  // if (!props.currentUser) history.push("/login");
 
   const getTracking = props => {
     // eslint-disable-next-line default-case
@@ -92,51 +122,70 @@ export default function Dashboard(props) {
               data.order.map(el => {
                 return (
                   <>
-                  {el.status !== "Cancel" ?<>
-                    <h1><b>Order #&nbsp; {el.id}</b> - <span style={{color: 'green'}}>{el.status}</span></h1>
-                    <Container>
-                      <Row>
-                        <Col>Schedule Date:</Col>
-                        <Col>
-                          <b>{el.dateandtime}</b>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col>Schedule Time:</Col>
-                        <Col>
-                          <b>10:00 AM TO 01:00 PM</b>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col>Address:</Col>
-                        {data.location &&
-                          data.location.map(ell => {
-                            if (ell.id === el.location_id) {
-                              return (
-                                <Col>
-                                  <b>{ell.location_pickup}</b>
-                                </Col>
-                              );
-                            }
-                          })}
-                      </Row>
-                    </Container>
-                    <button className="cancel_button" name="cancel" onClick={() =>
-                          cancelOrder(el.id)
-                          // deleteOrder(el.id)
-                        }>Cancel</button>
-                      </>: "" 
-                    
-                    }</>
+                    {el.status !== "Cancel" ? (
+                      <>
+                        <h1>
+                          <b>Order #&nbsp; {el.id}</b> -{" "}
+                          <span style={{ color: "green" }}>{el.status}</span>
+                        </h1>
+                        <Container>
+                          <Row>
+                            <Col>Schedule Date:</Col>
+                            <Col>
+                              <b>{el.dateandtime}</b>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col>Schedule Time:</Col>
+                            <Col>
+                              <b>10:00 AM TO 01:00 PM</b>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col>Address:</Col>
+                            {data.location &&
+                              data.location.map(ell => {
+                                if (ell.id === el.location_id) {
+                                  return (
+                                    <Col>
+                                      <b>{ell.location_pickup}</b>
+                                    </Col>
+                                  );
+                                }
+                              })}
+                          </Row>
+                        </Container>
+                        <button
+                          className="cancel_button"
+                          name="cancel"
+                          onClick={
+                            () => cancelOrder(el.id)
+                            // deleteOrder(el.id)
+                          }
+                        >
+                          Cancel
+                        </button>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </>
                 );
               })}
-            
           </div>
         );
       case 2:
         return (
           <div id="order_history" className="tab-pane fade active in">
             <div className="table-container table-responsive">
+              <div class="dropdown_filter">
+                <button class="dropbtn">Filter <i class="fas fa-long-arrow-alt-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="#" onClick={() => filterSchedule()}>Scheduled</a>
+                  <a href="#" onClick={() => filterCancel()}>Cancel</a>
+                  <a href="#" onClick={() => getOrder()}>All</a>
+                </div>
+              </div>
               <table className="border table-bordered table table-responsive">
                 <thead>
                   <tr>
@@ -156,13 +205,15 @@ export default function Dashboard(props) {
                         <tr>
                           <td># {el.id}</td>
                           <td>{el.dateandtime}</td>
-                          {el.status === "Cancel" ?
-                          <td>
-                          <div className="cancel-status">{el.status}</div>
-                        </td> : <td>
-                            <div className="schedule-status">{el.status}</div>
-                          </td>
-                        }
+                          {el.status === "Cancel" ? (
+                            <td>
+                              <div className="cancel-status">{el.status}</div>
+                            </td>
+                          ) : (
+                            <td>
+                              <div className="schedule-status">{el.status}</div>
+                            </td>
+                          )}
                           <td>10:00 AM TO 01:00 PM</td>
                           {data.location &&
                             data.location.map(ell => {

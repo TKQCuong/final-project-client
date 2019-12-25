@@ -559,7 +559,7 @@ export default function ScheduleService(props) {
                   value=""
                   id="serv3"
                   onChange={e =>
-                    setOrder({
+                    setOrder({...order,
                       dateandtime: document.getElementById("date3").textContent
                     })
                   }

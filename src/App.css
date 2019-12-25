@@ -1006,14 +1006,54 @@ html {
 }
 
 /* **************************** DASHBOARD */
-/* .main_dashboard {
-    width: 100%;
-    float: left;
-    padding: 15px 0px;
-    min-height: 100px;
-    height: calc(100vh - 106px);
-    margin-top: 6rem;
-} */
+.dropbtn {
+  background-color: #83e5de;
+  color: black;
+  padding: 8px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown_filter {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 5px 8px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown_filter:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown_filter:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
 .dashboard_header {
   width: 100%;
   float: left;
@@ -1161,8 +1201,8 @@ html {
   margin: 0px;
   padding: 0px;
   width: 100%;
-  padding-left: 8px;
-  padding-right: 7px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .table-bordered {
@@ -1186,9 +1226,21 @@ html {
   font-weight: 600;
   color: #fff;
   text-align: center;
-  padding-left: 20px;
+  padding-left: 33px;
   padding-right: 20px;
 }
+
+.table-responsive th:first-child {
+  background: #525252;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+} 
 
 .table-responsive tr {
   display: table-row;
