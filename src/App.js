@@ -16,7 +16,6 @@ import Scrolltop from './components/Scrolltop';
 import { Alert } from 'react-bootstrap';
 
 function App(props) {
-  const [loaded, setLoaded] = useState(false);
   const [currentUser, setCurrentUser]= useState(null)
 
   const getCombackUserData = async () => {
@@ -39,10 +38,10 @@ console.log(currentUser,'current user')
 
   return (
     <div className="App">
-      <Navibar {...props} currentUser={currentUser}/>
+      <Navibar {...props} currentUser={currentUser} />
       <Scrolltop />
       <Switch>
-        <Route exact path="/" render={() => <Home {...props} />} />
+        <Route exact path="/" render={() => <Home {...props} currentUser={currentUser}  />} />
         <Route path="/login" render={() => <Login {...props} setCurrentUser={setCurrentUser} currentUser={currentUser}/> }/>
         <Route path="/register" render={() => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route path="/servicecheck" render={() => <Servicecheck {...props} currentUser={currentUser}/>} />

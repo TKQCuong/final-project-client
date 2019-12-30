@@ -974,7 +974,7 @@ html {
 
 .modal-content {
   border: none;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
   background-color: #83e5de;
 }
 #service-modal-input {
@@ -2160,3 +2160,57 @@ a:hover {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+#modal-header-ad {
+  padding: 0;
+  border: none;
+  display: block;
+}
+
+#modal-header-ad img {
+  max-width: 100%;
+  width: 500px;
+  padding: 0;
+  margin: 0;
+}
+
+#modal-header-ad .modal-title {
+  padding: 0;
+}
+
+#modal-body-ad {
+  background-color: #fff;
+  margin-top: -2px;
+  text-align: center;
+}
+#modal-body-ad h1 {
+  font-size: 1.5rem;
+  padding-top: 20px;
+  font-weight: 700;
+}
+#modal-body-ad p {
+  padding-left: 17px;
+  padding-right: 17px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+#modal-footer-ad {
+  background-color: #fff;
+}
+
+#modal-content-ad {
+  border: 8px solid #83e5de;
+  border-radius: 10px;
+  margin-top: 108px;
+}
+
+#discount {
+  font-size: 22px;
+  color: blue;
+}
+.fa-percentage {
+  font-size: 20px;
+  padding-right: 6px;
+  color: blue;
+}
+

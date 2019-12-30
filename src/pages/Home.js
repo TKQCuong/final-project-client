@@ -5,6 +5,7 @@ import Service from "../components/Service";
 import Smallbanner from "../components/Smallbanner";
 import Bannerrunning from "../components/Banner-running";
 import Scrolltop from "../components/Scrolltop";
+import Advertisement from '../components/Advertisement';
 
 export default function Home(props) {
   return (
@@ -15,6 +16,7 @@ export default function Home(props) {
       <Service />
       <Smallbanner {...props}/>
       <Bannerrunning />
+      <Advertisement {...props}/>
     </div>
   );
 }
