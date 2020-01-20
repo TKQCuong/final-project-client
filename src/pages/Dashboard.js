@@ -6,16 +6,18 @@ import {
   Container,
   Form,
   FormGroup,
-  Button
+  Button,
+  Badge
 } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 export default function Dashboard(props) {
   let history = useHistory();
   const [tracking, setTracking] = useState(1);
-  const [update, setUpdate] = useState({});
+  const [update, setUpdate] = useState({username: props.currentUser && props.currentUser.username, mobile: props.currentUser && props.currentUser.mobile, password: props.currentUser && props.currentUser.password_hash});
   const [cancel, setCancel] = useState({});
   const [data, setData] = useState([]);
+console.log(update, 'update')
 
   const updateUser = async () => {
     const resp = await fetch(
@@ -31,7 +33,7 @@ export default function Dashboard(props) {
       }
     );
     const data = await resp.json();
-    if (data.email) {
+    if (resp.ok) {
       props.setCurrentUser(data);
       alert("Profile updated successfully!");
       history.push("/");
@@ -54,7 +56,7 @@ export default function Dashboard(props) {
       }
     });
     const data = await resp.json();
-    console.log(data, "123");
+    console.log(data, "current_order");
     setData(data);
   };
 
@@ -109,8 +111,6 @@ export default function Dashboard(props) {
     );
     if (resp.ok) getOrder();
   };
-
-  // if (!props.currentUser) history.push("/login");
 
   const getTracking = props => {
     // eslint-disable-next-line default-case
@@ -177,15 +177,26 @@ export default function Dashboard(props) {
       case 2:
         return (
           <div id="order_history" className="tab-pane fade active in">
-            <div className="table-container table-responsive">
+            <div className="table-container table-responsive">  
               <div class="dropdown_filter">
-                <button class="dropbtn">Filter <i class="fas fa-long-arrow-alt-down"></i></button>
-                <div class="dropdown-content">
-                  <a href="#" onClick={() => filterSchedule()}>Scheduled</a>
-                  <a href="#" onClick={() => filterCancel()}>Cancel</a>
-                  <a href="#" onClick={() => getOrder()}>All</a>
+                <div className="dropdown-filter-small">
+                  <button class="dropbtn">
+                    Filter <i class="fas fa-long-arrow-alt-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#" onClick={() => filterSchedule()}>
+                      Scheduled
+                    </a>
+                    <a href="#" onClick={() => filterCancel()}>
+                      Cancel
+                    </a>
+                    <a href="#" onClick={() => getOrder()}>
+                      All
+                    </a>
+                  </div>
                 </div>
               </div>
+              <div id="total_div"><span id="total_text">Total: {data.order && data.order.length}</span></div>
               <table className="border table-bordered table table-responsive">
                 <thead>
                   <tr>
@@ -242,8 +253,9 @@ export default function Dashboard(props) {
                 <Form.Control
                   type="email"
                   placeholder="Email"
-                  value={props.currentUser && props.currentUser.email}
+                  value={props.currentUser.email}
                   name="email"
+                  readonly="readonly"
                 />
               </Col>
             </Form.Group>
@@ -258,21 +270,20 @@ export default function Dashboard(props) {
               <Col sm={10}>
                 <Form.Control
                   type="text"
-                  placeholder="Username"
+                  placeholder={props.currentUser.username}
                   name="username"
                 />
               </Col>
             </Form.Group>
             <Form.Group
               as={Row}
-              controlId="formHorizontalEmail"
               onChange={e => setUpdate({ ...update, mobile: e.target.value })}
             >
               <Form.Label column sm={2} style={{ paddingLeft: "27px" }}>
                 Mobile
               </Form.Label>
               <Col sm={10}>
-                <Form.Control type="text" placeholder="Mobile" name="mobile" />
+                <Form.Control type="text" placeholder={props.currentUser.mobile} name="mobile" />
               </Col>
             </Form.Group>
             <Form.Group
@@ -286,7 +297,7 @@ export default function Dashboard(props) {
               <Col sm={10}>
                 <Form.Control
                   type="password"
-                  placeholder="Password"
+                  placeholder={props.currentUser.password_hash}
                   name="password"
                 />
               </Col>
@@ -382,6 +393,9 @@ export default function Dashboard(props) {
                     id="icon_order_history"
                   />
                   <br></br>Order History
+                  {/* <span>
+                    <Badge variant="dark" className="total_badge">{data.order && data.order.length}</Badge>
+                  </span> */}
                 </a>
               </Card>
             </Col>
