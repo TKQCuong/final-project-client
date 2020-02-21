@@ -29,10 +29,19 @@ export default function Login(props) {
     });
     const data = await resp.json();
 
-    if (data.false === "wrong pass") setVisible(true);
-    if (data.false === "not email") setAlert(true);
+    if (data.false === "wrong pass") {
+      setVisible(true);
+      window.setTimeout(()=>{
+        setVisible(false)
+      },5000)
+    }
+    if (data.false === "not email") {
+      setAlert(true);
+      window.setTimeout(()=>{
+        setAlert(false)
+      },5000)
+    }
     if (data.email) {
-      console.log("sksksk");
       props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
       props.history.push("/");

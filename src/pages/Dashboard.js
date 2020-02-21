@@ -10,6 +10,7 @@ import {
   Badge
 } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { Alert } from "reactstrap";
 
 export default function Dashboard(props) {
   let history = useHistory();
@@ -17,6 +18,10 @@ export default function Dashboard(props) {
   const [update, setUpdate] = useState({username: props.currentUser && props.currentUser.username, mobile: props.currentUser && props.currentUser.mobile, password: props.currentUser && props.currentUser.password_hash});
   const [cancel, setCancel] = useState({});
   const [data, setData] = useState([]);
+  //Alert
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => setVisible(false);
+
 console.log(update, 'update')
 
   const updateUser = async () => {
@@ -33,11 +38,19 @@ console.log(update, 'update')
       }
     );
     const data = await resp.json();
-    if (resp.ok) {
+    if(data.false === "same mobile") {
+      setVisible(true)
+      window.setTimeout(()=>{
+        setVisible(false)
+      },5000)
+    }
+    if (data.email) {
       props.setCurrentUser(data);
       alert("Profile updated successfully!");
       history.push("/");
     }
+    
+    
   };
 
   const handleSubmit = e => {
@@ -245,6 +258,7 @@ console.log(update, 'update')
       case 3:
         return (
           <Form onSubmit={e => handleSubmit(e)} className="form-edit-profile">
+            
             <Form.Group as={Row} controlId="formHorizontalEmail">
               <Form.Label column sm={2}>
                 Email
@@ -336,6 +350,14 @@ console.log(update, 'update')
             </div>
           </div>
         </div>
+        <Alert
+          color="danger"
+          isOpen={visible}
+          toggle={onDismiss}
+          className="alert_link"
+        >
+          The Mobile number you have entered is already existed
+        </Alert>
       </div>
 
       {/* Main Orders Tab */}

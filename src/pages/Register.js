@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import Navibar from "../components/Nav";
 import { Alert } from "reactstrap";
@@ -7,6 +7,52 @@ import { useHistory } from "react-router-dom";
 export default function Register(props) {
   let history = useHistory();
   // if (props.currentUser) history.goBack()
+
+  const checkMail = async () => {
+    const response = await fetch (`https://pozzad-email-validator.p.rapidapi.com/emailvalidator/validateEmail/${input.email}`, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "pozzad-email-validator.p.rapidapi.com",
+        "x-rapidapi-key": "a0e9db836fmshdc2218e09fe9227p1bb0b7jsn4b3a49e6d975"
+      }
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+  useEffect(() => {
+    checkMail();
+  }, []);
+
+  // var data = null;
+
+  // var xhr = new XMLHttpRequest();
+  // xhr.withCredentials = true;
+
+  // xhr.addEventListener("readystatechange", function() {
+  //   if (this.readyState === this.DONE) {
+  //     console.log(this.responseText);
+  //   }
+  // });
+
+  // xhr.open(
+  //   "GET",
+  //   `https://pozzad-email-validator.p.rapidapi.com/emailvalidator/validateEmail/${input.email}`
+  // );
+  // xhr.setRequestHeader(
+  //   "x-rapidapi-host",
+  //   "pozzad-email-validator.p.rapidapi.com"
+  // );
+  // xhr.setRequestHeader(
+  //   "x-rapidapi-key",
+  //   "a0e9db836fmshdc2218e09fe9227p1bb0b7jsn4b3a49e6d975"
+  // );
+
+  // xhr.send(data);
+
   const [input, setInput] = useState({});
   const handleOnChange = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -22,8 +68,18 @@ export default function Register(props) {
       body: JSON.stringify({ input })
     });
     const data = await resp.json();
-    if (data.false === "false") setVisible(true);
-    if (data.false === "existed mobile") setMobile(true);
+    if (data.false === "false") {
+      setVisible(true);
+      window.setTimeout(() => {
+        setVisible(false)
+      }, 5000)
+    }
+    if (data.false === "existed mobile") {
+      setMobile(true);
+      window.setTimeout(()=> {
+        setMobile(false)
+      }, 5000)
+    }
     if (data.email) {
       props.setCurrentUser(data);
       localStorage.setItem("token", data.token);
@@ -39,7 +95,7 @@ export default function Register(props) {
   function gotoLogin() {
     props.history.push("/login");
   }
-  
+
   const [visible, setVisible] = useState(false);
   const onDismiss = () => setVisible(false);
 
@@ -124,10 +180,10 @@ export default function Register(props) {
           </Button>
         </Form>
         <div className="signup_login signup_login_register">
-            <p>Already have an account?</p>
-            <a href="" onClick={() => gotoLogin()}>
-              Sign in here
-            </a>
+          <p>Already have an account?</p>
+          <a href="" onClick={() => gotoLogin()}>
+            Sign in here
+          </a>
         </div>
       </div>
     </div>
