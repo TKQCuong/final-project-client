@@ -49,8 +49,6 @@ console.log(update, 'update')
       alert("Profile updated successfully!");
       history.push("/");
     }
-    
-    
   };
 
   const handleSubmit = e => {
@@ -311,7 +309,7 @@ console.log(update, 'update')
               <Col sm={10}>
                 <Form.Control
                   type="password"
-                  placeholder={props.currentUser.password_hash}
+                  placeholder="Enter your password or change if needed"
                   name="password"
                 />
               </Col>
